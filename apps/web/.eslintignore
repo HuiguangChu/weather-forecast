@@ -1,8 +1,6 @@
 coverage/
 dist/
 node_modules/
-/**/i18n/**/*
-!/**/i18n/*
 .eslintignore
 .eslintrc.js
 scripts

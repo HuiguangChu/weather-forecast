@@ -1,10 +1,11 @@
-import Home from "./Home";
 import 'react-native-gesture-handler';
 import * as React from "react";
-import { store } from './redux/store';
+import { store } from '../redux/store';
 import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import Dashboard from "../components/Dashboard";
+import Details from "./Details";
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -12,9 +13,10 @@ const App = () => {
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen
-                    name="Home"
-                    component={Home}
+                    name="Dashboard"
+                    component={Dashboard}
                 />
+                <Stack.Screen name="Details" component={Details} />
             </Stack.Navigator>
         </NavigationContainer>
     </Provider>

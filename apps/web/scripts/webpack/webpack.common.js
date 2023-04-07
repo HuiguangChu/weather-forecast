@@ -34,6 +34,7 @@ module.exports = {
                 test: /(\.d)\.ts$/,
                 loader: 'ignore-loader',
                 include: [
+                    path.resolve('./src'),
                     path.resolve(__dirname, '../../../common'),
                 ],
             },
@@ -57,41 +58,54 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             modules: {
-                                mode: "local",
-                                auto: true,
-                                exportGlobals: true,
-                                localIdentName: "[path][name]__[local]--[hash:base64:5]",
+                                sourceMap: true,
+                                camelCase: true,
+                                minimize: true,
                                 namedExport: true,
-                                exportLocalsConvention: "camelCase",
-                                exportOnlyLocals: false,
-                            },
+                                modules: true,
+                                importLoaders: 2,
+                                localIdentName: '[hash:base64:5]',
+                            }
                         }
 
                     }, // translates CSS into CommonJS
                     {
-                        loader: 'sass-loader', // compiles Sass to CSS
+                        loader: "sass-loader",
                         options: {
-                            // Prefer `dart-sass`
-                            implementation: require("sass"),
+                            implementation: require("node-sass"),
                         },
-                    }
+                    },
                 ]
             },
-
             {
                 test: /(?<!\.d)\.tsx?$/,
                 loader: 'ts-loader',
                 include: [
+                    path.resolve(__dirname, '../../../common'),
+                ],
+                exclude: [
                     path.resolve('./src'),
-                    path.resolve(__dirname, '../../../common')
                 ],
                 options: {
                     transpileOnly: true
                 },
                 resolve: {
                     alias: {
-                        'react-native$': 'react-native-web',
+                        'react-native$': 'react-native-web'
                     }
+                }
+            },
+            {
+                test: /(?<!\.d)\.tsx?$/,
+                loader: 'ts-loader',
+                exclude: [
+                    path.resolve(__dirname, '../../../common'),
+                ],
+                include: [
+                    path.resolve('./src'),
+                ],
+                options: {
+                    transpileOnly: true
                 }
             }
         ]

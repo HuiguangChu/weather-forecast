@@ -1,7 +1,9 @@
 {
   "name": "weathre-forecast",
   "version": "1.0.0",
-  "workspaces": ["apps/*"],
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
     "dev:mobile": "yarn workspace mobile run start",
     "android": "yarn workspace mobile run android",
@@ -9,15 +11,16 @@
     "dev:web": "yarn workspace web run dev"
   },
   "dependencies": {
-    "react-redux": "^8.0.5",
-    "react": "^18.2.0",
     "@reduxjs/toolkit": "latest",
+    "react": "^18.2.0",
+    "react-redux": "^8.0.5",
     "redux-saga": "^1.2.3",
     "sass": "^1.56.1",
     "typesafe-actions": "^5.1.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.33",
+    "ts-jest": "^29.1.0",
     "typescript": "^5.0.3"
   },
   "private": true

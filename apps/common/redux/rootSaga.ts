@@ -1,9 +1,9 @@
 import { all } from 'redux-saga/effects';
-import counterSaga from './counter/saga';
+import dashboardSga from './dashboard/saga';
 
 function* rootSaga() {
     yield all([
-        counterSaga(),
+        dashboardSga(),
     ]);
 }
 

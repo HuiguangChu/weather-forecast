@@ -1,11 +1,18 @@
 import React, { memo } from 'react';
 import styles from './App.scss';
-import Counter from 'common/components/counter/Counter';
+import Dashboard from "./dashboard/Dashboard";
+import Header from "./header/Header";
 
 const App = memo(() => {
     return (
-        <div className={styles.app}>
-            <Counter />
+        <div className={styles.page}>
+            <header>
+                <Header/>
+            </header>
+            <main>
+                <Dashboard />
+            </main>
+
         </div>
     );
 });

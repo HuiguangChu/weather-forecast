@@ -11,11 +11,7 @@ module.exports = (async () => {
     resolver: { sourceExts }
   } = await getDefaultConfig(projectRoot);
   return {
-    transformer: {
-      babelTransformerPath: require.resolve("react-native-sass-transformer")
-    },
     resolver: {
-      sourceExts: [...sourceExts, "scss", "sass"],
       disableHierarchicalLookup: true,
       nodeModulesPaths: [
         path.resolve(projectRoot, 'node_modules'),

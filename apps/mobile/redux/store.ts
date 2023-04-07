@@ -1,9 +1,9 @@
 import { applyMiddleware, combineReducers, configureStore, StoreEnhancer } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from 'common/redux/rootSaga';
-import {counterReducer} from "common/redux/counter/reducer";
+import { dashboardReducer } from "common/redux/dashboard/reducer";
 
-const reducer = combineReducers({ counter: counterReducer});
+const reducer = combineReducers({ dashboard: dashboardReducer});
 const sagaMiddleware = createSagaMiddleware();
 const middlewares: any = [ sagaMiddleware];
 
