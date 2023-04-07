@@ -1,0 +1,8 @@
+{
+  "name": "common",
+  "version": "1.0.1",
+  "description": "shared for mobile and web",
+  "author": "huiguangchu@gmail.com",
+  "license": "MIT",
+  "private": true
+}
