@@ -1,5 +1,6 @@
 import {DashboardAction, DashboardActionTypes} from "./actions";
 import { WeatherData } from "../../services/dataParcer";
+import { LocationState } from "history";
 
 export interface CurrentPosition {
     latitude: number;

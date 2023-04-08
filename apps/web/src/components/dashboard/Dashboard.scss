@@ -1,6 +1,6 @@
 .overviewContainer {
   display: flex;
-  flex-grow: 1;
+  flex: 1;
   justify-content: space-between;
   flex-wrap: wrap;
 
@@ -17,10 +17,8 @@
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 600px) {
   .overviewContainer {
-    flex-direction: column;
-
     .item {
       flex-basis: 100%;
     }

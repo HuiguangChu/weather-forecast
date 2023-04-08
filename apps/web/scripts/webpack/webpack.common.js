@@ -69,10 +69,12 @@ module.exports = {
                         }
 
                     }, // translates CSS into CommonJS
+                    'resolve-url-loader',
                     {
-                        loader: "sass-loader",
+                        loader: 'sass-loader',
                         options: {
-                            implementation: require("node-sass"),
+                            implementation: require('sass'),
+                            sourceMap: true,
                         },
                     },
                 ]
@@ -107,7 +109,16 @@ module.exports = {
                 options: {
                     transpileOnly: true
                 }
-            }
+            },
+            {
+                test: /\.(jp(e)?g|png|gif|svg)$/,
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8192
+                    }
+                }
+            },
         ]
     },
     plugins: [

@@ -19,8 +19,6 @@ describe('dashboard reducer test', () => {
 
         const state: DashboardState = dashboardReducer(initialState, setCurrentPosition(mockedPosition));
         expect(state).toEqual(expectedState);
-
-
     });
 
 });

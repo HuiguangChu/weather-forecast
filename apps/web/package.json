@@ -7,7 +7,8 @@
     "connected-react-router": "^6.9.3",
     "react-dom": "^18.2.0",
     "react-native-web": "^0.19.2",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "sass": "^1.61.0"
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --mode production --config ./scripts/webpack/webpack.production.js",
@@ -67,8 +68,8 @@
     "jest-puppeteer": "^6.1.0",
     "mini-css-extract-plugin": "^2.7.5",
     "mkdir": "^0.0.2",
-    "node-sass": "^8.0.0",
     "request": "^2.88.2",
+    "resolve-url-loader": "^5.0.0",
     "sass-loader": "^13.2.2",
     "style-loader": "^2.0.0",
     "stylelint": "^13.0.0",
