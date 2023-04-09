@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 
 /*
-* context: default value is process.cwd(), where the current working directly contains package.json
 * __dirname: ./scripts/webpack
 *
 * */
@@ -13,7 +12,7 @@ module.exports = {
     output: {
         filename: '[name].bundle.js',
         chunkFilename: '[name].chunk.js',
-        path: path.resolve(process.cwd(), '../../dist'),
+        path: path.resolve(__dirname, '../../dist'),
         publicPath: '/'
     },
     resolve: {

@@ -1,9 +1,9 @@
 import React, { memo, Suspense } from 'react';
 import { useSelector } from 'react-redux';
-import CityOverView from 'common/components/cityOverview/CityOverview';
+import CityOverView from 'common/src/components/cityOverview/CityOverview';
 import { useHistory } from 'react-router-dom';
-import { CityWeatherData } from 'common/services/types';
-import Loading from 'common/components/Loading';
+import { CityWeatherData } from 'common/src/services/types';
+import Loading from 'common/src/components/Loading';
 import styles from './Dashboard.scss';
 
 const Dashboard = memo(() => {

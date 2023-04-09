@@ -1,14 +1,16 @@
-import React, {memo} from 'react';
-import {View, FlatList, StyleSheet, FlatListProps} from 'react-native';
+import React, { memo } from 'react';
+import {
+    View, FlatList, StyleSheet, FlatListProps,
+} from 'react-native';
 import { useSelector } from 'react-redux';
-import CityOverView from "common/components/cityOverview/CityOverview";
-import {AppRootState, RootState} from "common/services/types";
+import CityOverView from 'common/src/components/cityOverview/CityOverview';
+import { RootState } from 'common/src/services/types';
 
 const Dashboard = memo(({ navigation }) => {
     const { citiesDataCollection } = useSelector((state: RootState) => state.appRoot);
 
     const onNavigateToCityDetails = (cityName: string) => {
-        navigation.navigate('Details', { cityName })
+        navigation.navigate('Details', { cityName });
     };
     const renderItem = ({ item }: FlatListProps) => (
         <CityOverView
@@ -19,10 +21,11 @@ const Dashboard = memo(({ navigation }) => {
         />
     );
 
-    return <View style={styles.container}>
-            <FlatList data={ citiesDataCollection } renderItem={renderItem}/>
+    return (
+        <View style={styles.container}>
+            <FlatList data={citiesDataCollection} renderItem={renderItem} />
         </View>
-
+    );
 });
 
 export default Dashboard;
@@ -34,6 +37,6 @@ const styles = StyleSheet.create({
     },
     loadingText: {
         alignSelf: 'center',
-        fontSize: 18
-    }
+        fontSize: 18,
+    },
 });

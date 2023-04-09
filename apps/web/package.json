@@ -13,9 +13,9 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --mode production --config ./scripts/webpack/webpack.production.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --config ./scripts/webpack/webpack.dev-server.js",
-    "eslint": "cross-env eslint --fix --parser-options=project:./tsconfig.json --ext '.js,.jsx,.ts,.tsx' src/",
+    "eslint": "eslint --fix --parser-options=project:../../tsconfig.json --ext '.js,.jsx,.ts,.tsx' src/",
     "lint": "yarn eslint && yarn stylelint",
-    "stylelint": "cross-env stylelint './src/components/*.scss'",
+    "stylelint": "stylelint './src/components/*.scss'",
     "test": "jest --config ../../jest.config.js"
   },
   "browserslist": {

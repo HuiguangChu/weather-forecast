@@ -1,8 +1,8 @@
 import React, { memo, Fragment } from 'react';
 import { useParams } from 'react-router';
 import { useSelector } from 'react-redux';
-import { RootState } from 'common/services/types';
-import Loading from 'common/components/Loading';
+import { RootState } from 'common/src/services/types';
+import Loading from 'common/src/components/Loading';
 import styles from './App.scss';
 import Dashboard from './dashboard/Dashboard';
 import Header from './header/Header';

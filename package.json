@@ -5,10 +5,11 @@
     "apps/*"
   ],
   "scripts": {
-    "dev:mobile": "yarn workspace mobile run start",
-    "android": "yarn workspace mobile run android",
-    "ios": "yarn workspace mobile run android",
-    "dev:web": "yarn workspace web run dev"
+    "dev:mobile": "yarn workspace mobile start",
+    "android": "yarn workspace mobile android",
+    "ios": "yarn workspace mobile android",
+    "dev:web": "yarn workspace web dev",
+    "lint:all": "yarn workspace web lint && yarn workspace mobile lint && yarn workspace common lint"
   },
   "dependencies": {
     "@reduxjs/toolkit": "latest",

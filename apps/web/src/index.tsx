@@ -12,7 +12,7 @@ import { getLocation } from './services/locationService';
 getLocation();
 
 const history = createBrowserHistory();
-const container = document.getElementById('react-root')!;
+const container = document.getElementById('react-root');
 const root = createRoot(container);
 
 root.render(

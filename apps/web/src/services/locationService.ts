@@ -1,4 +1,4 @@
-import { loadWeatherDataForDefaultCities, setCurrentPosition } from 'common/redux/appRoot/actions';
+import { loadWeatherDataForDefaultCities, setCurrentPosition } from 'common/src/redux/appRoot/actions';
 import { store } from '../redux/store';
 
 export const getLocation = () => {

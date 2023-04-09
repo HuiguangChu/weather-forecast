@@ -1,5 +1,7 @@
-import React, {memo} from 'react';
-import { View,  ActivityIndicator, StyleSheet, Text } from 'react-native';
+import React, { memo } from 'react';
+import {
+    View, ActivityIndicator, StyleSheet, Text,
+} from 'react-native';
 
 const Loading = memo(() => (
     <View style={[styles.container, styles.horizontal]}>
@@ -13,6 +15,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
 });
