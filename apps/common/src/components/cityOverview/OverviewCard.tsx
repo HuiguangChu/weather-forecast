@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { FC, memo } from 'react';
 import { Text, StyleSheet, Pressable } from 'react-native';
 
 interface CityOverviewProps {
@@ -7,7 +7,7 @@ interface CityOverviewProps {
    onOpenCityDetails: (cityName: string) => void;
 }
 
-const CityOverview = memo(({ cityName, temperature, onOpenCityDetails }: CityOverviewProps) => {
+const CityOverviewCard: FC<CityOverviewProps> = memo(({ cityName, temperature, onOpenCityDetails }: CityOverviewProps) => {
     const onCityClick = () => {
         onOpenCityDetails(cityName);
     };
@@ -30,7 +30,7 @@ const CityOverview = memo(({ cityName, temperature, onOpenCityDetails }: CityOve
     );
 });
 
-export default CityOverview;
+export default CityOverviewCard;
 
 const styles = StyleSheet.create({
     item: {

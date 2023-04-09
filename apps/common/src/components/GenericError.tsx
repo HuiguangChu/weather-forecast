@@ -1,17 +1,22 @@
-import React, { memo } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import React, { FC, memo, ReactNode } from 'react';
+import { View, Text } from 'react-native';
+import styleMixin from './stylesMixin';
 
-const GenericError = memo(() => (
-    <View style={[styles.container]}>
-        <Text>OBS!Something went wrong, please try again!</Text>
-    </View>
-));
+interface GenericErrorProps {
+    errorAlertComponent?: ReactNode;
+    errorMessage?: string;
+}
 
-export default GenericError;
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
+const GenericError: FC<GenericErrorProps> = memo(({ errorAlertComponent, errorMessage }: GenericErrorProps) => {
+    return (
+        <View style={styleMixin.containerWithContentCenterFullHeight}>
+            { errorAlertComponent
+            || (
+                <Text>
+                    { errorMessage || 'OBS!Something went wrong, please try again!' }
+                </Text>
+            ) }
+        </View>
+    );
 });
+export default GenericError;

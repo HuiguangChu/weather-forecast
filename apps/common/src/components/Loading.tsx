@@ -1,20 +1,18 @@
-import React, { memo } from 'react';
+import React, { FC, memo } from 'react';
 import {
-    View, ActivityIndicator, StyleSheet, Text,
+    View, ActivityIndicator, Text,
 } from 'react-native';
 
-const Loading = memo(() => (
-    <View style={[styles.container, styles.horizontal]}>
+import styleMixin from './stylesMixin';
+
+interface LoadingProps {
+    message?: string;
+}
+const Loading: FC<LoadingProps> = memo(({ message }: LoadingProps) => (
+    <View style={styleMixin.containerWithContentCenterFullHeight}>
         <ActivityIndicator />
-        <Text>Loading...</Text>
+        <Text>{message || 'Loading...'}</Text>
     </View>
 ));
 
 export default Loading;
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-});
