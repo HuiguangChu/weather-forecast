@@ -2,6 +2,17 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   flex: 1;
+}
+
+@media screen and (max-width: 600px){
+  .detailsWrapper {
+    flex-direction: column;
+    justify-content: center;
+
+    .temperatureInfo {
+      margin-bottom: 5rem;
+    }
+  }
 }

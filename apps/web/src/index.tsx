@@ -12,9 +12,9 @@ import { getLocation } from "./services/locationService";
 getLocation();
 
 const history = createBrowserHistory();
-
 const container = document.getElementById('react-root')!;
 const root = createRoot(container);
+
 root.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>

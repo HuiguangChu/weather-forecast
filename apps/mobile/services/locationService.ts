@@ -1,6 +1,6 @@
 import {requestForegroundPermissionsAsync, getCurrentPositionAsync, LocationObject } from 'expo-location';
 import { store } from "../redux/store";
-import {loadWeatherDataForDefaultCities, setCurrentPosition} from "../../common/redux/dashboard/actions";
+import {loadWeatherDataForDefaultCities, setCurrentPosition} from "../../common/redux/appRoot/actions";
 
 export const getLocation = async () => {
     let { status } = await requestForegroundPermissionsAsync();

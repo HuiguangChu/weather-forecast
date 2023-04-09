@@ -1,24 +1,16 @@
-import React, {memo, useLayoutEffect} from 'react';
-import {View, FlatList, StyleSheet, Text} from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
-import { DashboardState, RootState } from "common/redux/dashboard/reducer";
+import React, {memo} from 'react';
+import {View, FlatList, StyleSheet, FlatListProps} from 'react-native';
+import { useSelector } from 'react-redux';
 import CityOverView from "common/components/cityOverview/CityOverview";
-import { getLocation } from "../services/locationService";
-import { navigateToCityDetails } from "../../common/redux/dashboard/actions";
+import {AppRootState, RootState} from "common/services/types";
 
 const Dashboard = memo(({ navigation }) => {
-    useLayoutEffect(() => {
-        getLocation();
-    }, []);
+    const { citiesDataCollection } = useSelector((state: RootState) => state.appRoot);
 
-    const dispatch = useDispatch();
-
-    const dashboardState: DashboardState = useSelector((state: RootState) => state.dashboard);
-    const { dataForDisplay } = dashboardState;
     const onNavigateToCityDetails = (cityName: string) => {
-        navigation.navigate('Details', { name: cityName })
+        navigation.navigate('Details', { cityName })
     };
-    const renderItem = ({ item }) => (
+    const renderItem = ({ item }: FlatListProps) => (
         <CityOverView
             cityName={item.cityName}
             temperature={item.temperature}
@@ -26,14 +18,9 @@ const Dashboard = memo(({ navigation }) => {
             onOpenCityDetails={onNavigateToCityDetails}
         />
     );
+
     return <View style={styles.container}>
-            {
-                dataForDisplay
-                    ? <FlatList data={dataForDisplay}
-                                renderItem={renderItem}
-                    />
-                    : <Text style={styles.loadingText}>Loading</Text>
-            }
+            <FlatList data={ citiesDataCollection } renderItem={renderItem}/>
         </View>
 
 });

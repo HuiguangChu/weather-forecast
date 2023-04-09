@@ -1,9 +1,10 @@
-import { initialState, DashboardState, dashboardReducer, CurrentPosition } from './reducer';
+import { initialState, appRootReducer, RootState } from './reducer';
 import { setCurrentPosition } from "./actions";
+import {AppRootState, CurrentPosition} from "../../services/types";
 
-describe('dashboard reducer test', () => {
+describe('appRoot reducer test', () => {
     it('should load initial state if no action triggered', function () {
-        const expectedState: DashboardState = dashboardReducer(undefined, {} as any);
+        const expectedState: AppRootState = appRootReducer(undefined, {} as any);
 
         expect(expectedState).toEqual(initialState);
     });
@@ -12,12 +13,12 @@ describe('dashboard reducer test', () => {
             longitude: 123.12,
             latitude: 123.11,
         };
-        const expectedState: DashboardState = {
+        const expectedState: AppRootState = {
             ...initialState,
             currentPosition: mockedPosition
         };
 
-        const state: DashboardState = dashboardReducer(initialState, setCurrentPosition(mockedPosition));
+        const state: AppRootState = appRootReducer(initialState, setCurrentPosition(mockedPosition));
         expect(state).toEqual(expectedState);
     });
 

@@ -1,18 +1,27 @@
 import React, { memo } from 'react';
 import { StyleSheet, View} from 'react-native';
 import {useSelector} from "react-redux";
-import {RootState} from "common/redux/dashboard/reducer";
-import {WeatherData} from "common/services/dataParcer";
 import TemperatureSection from "common/components/cityDetails/TemperatureSection";
+import ExtraInfoSection from "common/components/cityDetails/ExtraInfoSection";
+import { CityWeatherData, RootState } from "common/services/types";
+import GenericError from "common/components/GenericError";
 
 const CityDetails = memo(({ route }) => {
-    const dashboardState = useSelector((state: RootState) => state.dashboard);
-    const cityDetails = dashboardState?.dataForDisplay?.find((weatherData: WeatherData) => {
-        return weatherData.cityName === route.params.name;
+    const appRootState = useSelector((state: RootState) => state?.appRoot);
+    const cityDetails = appRootState?.citiesDataCollection?.find((cityDate: CityWeatherData) => {
+        return cityDate.cityName === route.params.cityName;
     });
+    if (!cityDetails) {
+        return <GenericError/>
+    }
 
     return <View style={styles.container}>
-            <TemperatureSection cityDetails={cityDetails}/>
+                <View>
+                    <View style={styles.temperatureInfo}>
+                        <TemperatureSection cityDetails={cityDetails}/>
+                    </View>
+                    <ExtraInfoSection cityDetails={cityDetails}/>
+                </View>
         </View>;
 
 });
@@ -22,7 +31,10 @@ export default CityDetails;
 const styles = StyleSheet.create({
         container: {
             alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'space-around',
             flex: 1
+        },
+        temperatureInfo: {
+            marginBottom: 40
         }
 });

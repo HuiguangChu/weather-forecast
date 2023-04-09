@@ -1,22 +1,22 @@
 import React, { memo } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { WeatherData } from "../../services/dataParcer";
+import {CityWeatherData} from "../../services/types";
 
 interface TemperatureSectionProps {
-    cityDetails: WeatherData;
+    cityDetails: CityWeatherData;
 }
 const TemperatureSection  = memo(({cityDetails}: TemperatureSectionProps) => {
         const { weatherStatus, temperature, maxTemperature, minTemperature } = cityDetails;
 
         return <View style={styles.container}>
                 <Text>{weatherStatus}</Text>
-                <Text style={styles.temperature}>{temperature}</Text>
+                <Text style={styles.temperature}>{temperature} &#8451;</Text>
                 <View style={styles.minMaxTemperature}>
                     <Text>
-                        {`H: ${maxTemperature}`}
+                        {`H: ${maxTemperature}`} &#8451;
                     </Text>
                     <Text style={styles.minTemperature}>
-                        {`L: ${minTemperature}`}
+                        {`L: ${minTemperature}`} &#8451;
                     </Text>
                 </View>
         </View>
@@ -42,6 +42,5 @@ const styles = StyleSheet.create({
         },
         minTemperature: {
             marginLeft: 10
-
         }
 });
