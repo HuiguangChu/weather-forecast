@@ -5,6 +5,7 @@ import {
 import { useSelector } from 'react-redux';
 import CityOverView from 'common/src/components/cityOverview/CityOverview';
 import { RootState } from 'common/src/services/types';
+import PageWithBackground from './PageWithBackground';
 
 const Dashboard = memo(({ navigation }) => {
     const { citiesDataCollection } = useSelector((state: RootState) => state.appRoot);
@@ -22,9 +23,11 @@ const Dashboard = memo(({ navigation }) => {
     );
 
     return (
-        <View style={styles.container}>
-            <FlatList data={citiesDataCollection} renderItem={renderItem} />
-        </View>
+        <PageWithBackground>
+            <View style={styles.container}>
+                <FlatList data={citiesDataCollection} renderItem={renderItem} />
+            </View>
+        </PageWithBackground>
     );
 });
 
@@ -32,8 +35,9 @@ export default Dashboard;
 
 const styles = StyleSheet.create({
     container: {
-        flexGrow: 1,
         justifyContent: 'center',
+        flexGrow: 1,
+        height: '100%',
     },
     loadingText: {
         alignSelf: 'center',

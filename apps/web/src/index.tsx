@@ -7,7 +7,6 @@ import { createBrowserHistory } from 'history';
 import App from './components/App';
 import { store } from './redux/store';
 import { getLocation } from './services/locationService';
-
 // ask for location permission if not have
 getLocation();
 

@@ -5,6 +5,7 @@ import TemperatureSection from 'common/src/components/cityDetails/TemperatureSec
 import ExtraInfoSection from 'common/src/components/cityDetails/ExtraInfoSection';
 import { CityWeatherData, RootState } from 'common/src/services/types';
 import GenericError from 'common/src/components/GenericError';
+import PageWithBackground from './PageWithBackground';
 
 const CityDetails = memo(({ route }) => {
     const appRootState = useSelector((state: RootState) => state?.appRoot);
@@ -16,14 +17,16 @@ const CityDetails = memo(({ route }) => {
     }
 
     return (
-        <View style={styles.container}>
-            <View>
-                <View style={styles.temperatureInfo}>
-                    <TemperatureSection cityDetails={cityDetails} />
+        <PageWithBackground>
+            <View style={styles.container}>
+                <View>
+                    <View style={styles.temperatureInfo}>
+                        <TemperatureSection cityDetails={cityDetails} />
+                    </View>
+                    <ExtraInfoSection cityDetails={cityDetails} />
                 </View>
-                <ExtraInfoSection cityDetails={cityDetails} />
             </View>
-        </View>
+        </PageWithBackground>
     );
 });
 
@@ -33,7 +36,7 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         justifyContent: 'space-around',
-        flex: 1,
+        height: '100%',
     },
     temperatureInfo: {
         marginBottom: 40,

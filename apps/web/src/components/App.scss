@@ -22,20 +22,29 @@ body {
   background-position: top right;
   background-size: cover;
   background-image: url('https://www.yr.no/assets/images/background-cloud.jpg'), -webkit-gradient(linear, left top, left bottom, from(#e1f0fa), to(#fff));
+  padding: 1rem 0;
 
   .pageHeader {
+    position: relative;
     display: flex;
     padding: 2rem;
     font-weight: bold;
     justify-content: center;
+    align-items: center;
     font-size: 2rem;
     -webkit-box-shadow: 0 2px 1px 0 rgba(204, 226, 248, 0.5);
     -moz-box-shadow: 0 2px 1px 0 rgba(204, 226, 248, 0.5);
     box-shadow: 0 2px 1px 0 rgba(204, 226, 248, 0.5);
+
+    .goBackButton {
+      display: block;
+      position: absolute;
+      left: 2rem;
+      color: black;
+    }
   }
 
   .pageMain {
-    padding: 1rem 0;
     display: flex;
     flex: 1;
   }

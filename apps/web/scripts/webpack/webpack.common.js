@@ -110,11 +110,11 @@ module.exports = {
                 }
             },
             {
-                test: /\.(jp(e)?g|png|gif|svg)$/,
+                test: /\.(png|woff|woff2|eot|ttf|svg)$/,
                 use: {
                     loader: 'url-loader',
                     options: {
-                        limit: 8192
+                        limit: 100000
                     }
                 }
             },
