@@ -10,7 +10,7 @@ interface HeaderProps {
 const Header = memo(({ title }: HeaderProps) => {
     return (
         <header className={styles.pageHeader}>
-            <Link to="/" className={styles.goBackButton} aria-label="Go back to dashboard">
+            <Link to="/" className={styles.goBackButton} aria-label="Go back to dashboard" role="link">
                 {title && <FontAwesomeIcon icon={faArrowLeft} />}
             </Link>
             <span>{title || 'Dashboard' }</span>

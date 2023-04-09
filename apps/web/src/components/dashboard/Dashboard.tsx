@@ -15,22 +15,22 @@ const Dashboard = memo(() => {
     const renderCitiesList = () => {
         return appRootState?.citiesDataCollection?.map((cityData: CityWeatherData) => {
             return (
-                <div className={styles.item} key={cityData?.cityName}>
+                <li className={styles.item} key={cityData?.cityName}>
                     <CityOverView
                         cityName={cityData?.cityName}
                         temperature={cityData?.temperature}
                         onOpenCityDetails={onNavigateToDetailPage}
                     />
-                </div>
+                </li>
             );
         });
     };
 
     return (
         <Suspense fallback={<Loading />}>
-            <div className={styles.overviewContainer}>
+            <ul className={styles.overviewContainer}>
                 { renderCitiesList() }
-            </div>
+            </ul>
         </Suspense>
     );
 });

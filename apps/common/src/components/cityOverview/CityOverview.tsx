@@ -16,6 +16,9 @@ const CityOverview = memo(({ cityName, temperature, onOpenCityDetails }: CityOve
             style={({ pressed }) => [
                 { backgroundColor: pressed ? '#eef6f8' : '#cce2f8' }, styles.item]}
             onPress={onCityClick}
+            accessibilityLabel="Go back"
+            accessibilityHint="Navigates to the previous screen"
+            accessibilityRole="link"
         >
             <Text>{cityName}</Text>
             <Text>

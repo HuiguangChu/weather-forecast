@@ -1,8 +1,9 @@
 .overviewContainer {
   display: flex;
   flex: 1;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
+  padding: 1rem 0;
 
   .item {
     flex-basis: 33%;
@@ -11,6 +12,7 @@
 
 @media screen and (max-width: 980px) {
   .overviewContainer {
+    flex: none;
     .item {
       flex-basis: 50%;
     }
@@ -19,6 +21,7 @@
 
 @media screen and (max-width: 600px) {
   .overviewContainer {
+    flex: none;
     .item {
       flex-basis: 100%;
     }
