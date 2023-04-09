@@ -1,12 +1,12 @@
-import React, {memo, Fragment} from 'react';
+import React, { memo, Fragment } from 'react';
+import { useParams } from 'react-router';
+import { useSelector } from 'react-redux';
+import { RootState } from 'common/services/types';
+import Loading from 'common/components/Loading';
 import styles from './App.scss';
-import Dashboard from "./dashboard/Dashboard";
-import Header from "./header/Header";
-import { useParams } from "react-router";
-import Details from "./details/Details";
-import {useSelector} from "react-redux";
-import {RootState} from "common/services/types";
-import Loading from "common/components/Loading";
+import Dashboard from './dashboard/Dashboard';
+import Header from './header/Header';
+import Details from './details/Details';
 
 const App = memo(() => {
     const { cityName } = useParams();
@@ -14,15 +14,17 @@ const App = memo(() => {
 
     const renderPageBody = () => {
         if (!appRoot?.citiesDataCollection) {
-            return <Loading/>
+            return <Loading />;
         }
 
-        return (<Fragment>
+        return (
+            <Fragment>
                 <Header title={cityName} />
                 <div className={styles.pageMain}>
-                    {cityName ? <Details/> : <Dashboard/>}
+                    {cityName ? <Details /> : <Dashboard />}
                 </div>
-        </Fragment>);
+            </Fragment>
+        );
     };
 
     return (

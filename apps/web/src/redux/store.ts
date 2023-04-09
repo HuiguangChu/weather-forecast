@@ -1,4 +1,6 @@
-import { applyMiddleware, combineReducers, configureStore, StoreEnhancer } from '@reduxjs/toolkit';
+import {
+    applyMiddleware, combineReducers, configureStore, StoreEnhancer,
+} from '@reduxjs/toolkit';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import createSagaMiddleware from 'redux-saga';
 import { createBrowserHistory } from 'history';
@@ -12,7 +14,7 @@ const middlewares: any = [routerMiddleware(history), sagaMiddleware];
 
 export const store = configureStore({
     reducer,
-    enhancers: [applyMiddleware(...middlewares)] as ReadonlyArray<StoreEnhancer>
+    enhancers: [applyMiddleware(...middlewares)] as ReadonlyArray<StoreEnhancer>,
 });
 
 sagaMiddleware.run(rootSaga);

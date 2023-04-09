@@ -1,9 +1,10 @@
-html,body {
+html,
+body {
   width: 100%;
   height: 100%;
   font-size: 1rem;
   line-height: 1.6rem;
-  font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
   font-weight: normal;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -20,25 +21,22 @@ html,body {
   right: 0;
   background-position: top right;
   background-size: cover;
-  background-image: url('https://www.yr.no/assets/images/background-cloud.jpg'),-webkit-gradient(linear, left top, left bottom, from(#e1f0fa), to(#ffffff));
+  background-image: url('https://www.yr.no/assets/images/background-cloud.jpg'), -webkit-gradient(linear, left top, left bottom, from(#e1f0fa), to(#fff));
 
-.pageHeader {
-display: flex;
-padding: 2rem;
-font-weight: bold;
-justify-content: center;
-font-size: 2rem;
--webkit-box-shadow: 0 2px 1px 0 rgba(204, 226, 248, 0.5);
--moz-box-shadow: 0 2px 1px 0 rgba(204, 226, 248, 0.5);
-box-shadow: 0 2px 1px 0 rgba(204, 226, 248, 0.5);
+  .pageHeader {
+    display: flex;
+    padding: 2rem;
+    font-weight: bold;
+    justify-content: center;
+    font-size: 2rem;
+    -webkit-box-shadow: 0 2px 1px 0 rgba(204, 226, 248, 0.5);
+    -moz-box-shadow: 0 2px 1px 0 rgba(204, 226, 248, 0.5);
+    box-shadow: 0 2px 1px 0 rgba(204, 226, 248, 0.5);
+  }
+
+  .pageMain {
+    padding: 1rem 0;
+    display: flex;
+    flex: 1;
+  }
 }
-
-.pageMain {
-  padding: 1rem 0;
-  display: flex;
-  flex: 1;
-}
-}
-
-
-
