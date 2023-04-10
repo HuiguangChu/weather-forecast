@@ -5,6 +5,7 @@
     "apps/*"
   ],
   "scripts": {
+    "postinstall": "husky install",
     "dev:mobile": "yarn workspace mobile start",
     "dev:web": "yarn workspace web dev",
     "lint:all": "yarn workspace web lint --fix && yarn workspace mobile lint --fix && yarn workspace common lint --fix",
@@ -16,6 +17,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "latest",
+    "husky": "^8.0.3",
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-redux": "^8.0.5",

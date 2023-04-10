@@ -1,8 +1,8 @@
 import { CityWeatherData } from './types';
 import { parseCityWeatherData } from './dataParcer';
 
-describe('test dataParcer', () => {
-    describe('test function parseWeatherDataForDisplay()', () => {
+describe('test dataParcer service', () => {
+    describe('test function parseCityWeatherData()', () => {
         const mockData = {
             coord: {
                 lon: 10.99,
@@ -58,9 +58,10 @@ describe('test dataParcer', () => {
             expect(data).toEqual(null);
         });
 
-        it('should return tempature if valida data object passed in', () => {
+        it('should return temperature in rounded number if valida data object passed in', () => {
             const data: CityWeatherData = parseCityWeatherData(mockData);
-            expect(data.temperature).toEqual(mockData.main.temp);
+            expect(data.temperature).not.toEqual(mockData.main.temp);
+            expect(data.temperature).toEqual(Math.round(mockData.main.temp));
         });
     });
 });
