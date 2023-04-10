@@ -1,4 +1,6 @@
-import React, { memo, Fragment, useLayoutEffect } from 'react';
+import React, {
+    memo, Fragment, useLayoutEffect, FC,
+} from 'react';
 import { useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 import { RootState } from 'common/src/services/types';
@@ -9,7 +11,7 @@ import Header from './header/Header';
 import Details from './details/Details';
 import { getLocation } from '../services/locationService';
 
-const App = memo(() => {
+const App: FC = memo(() => {
     // ask for location permission if not have
     useLayoutEffect(() => getLocation(),
         []);

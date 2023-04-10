@@ -1,24 +1,25 @@
-import React, { memo } from 'react';
+import React, { FC, memo } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { CityWeatherData } from '../../services/types';
+import styleMixin from '../stylesMixin';
 
 interface TemperatureSectionProps {
     cityDetails: CityWeatherData;
 }
-const TemperatureSection = memo(({ cityDetails }: TemperatureSectionProps) => {
+const TemperatureSection: FC<TemperatureSectionProps> = memo(({ cityDetails }: TemperatureSectionProps) => {
     const {
         weatherStatus, temperature, maxTemperature, minTemperature,
     } = cityDetails;
 
     return (
-        <View style={styles.container}>
+        <View style={styleMixin.alignContentAndItemCentered}>
             <Text>{weatherStatus}</Text>
             <Text style={styles.temperature}>
                 {temperature}
                 {' '}
                 &#8451;
             </Text>
-            <View style={styles.minMaxTemperature}>
+            <View style={styleMixin.flexRowWithSpaceBetween}>
                 <Text>
                     {`H: ${maxTemperature}`}
                     {' '}
@@ -37,20 +38,11 @@ const TemperatureSection = memo(({ cityDetails }: TemperatureSectionProps) => {
 export default TemperatureSection;
 
 const styles = StyleSheet.create({
-    container: {
-        flexDirection: 'column',
-        alignItems: 'center',
-        alignContent: 'center',
-    },
     temperature: {
         fontSize: 30,
         fontWeight: 'bold',
         marginTop: 5,
         marginBottom: 5,
-    },
-    minMaxTemperature: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
     },
     minTemperature: {
         marginLeft: 10,

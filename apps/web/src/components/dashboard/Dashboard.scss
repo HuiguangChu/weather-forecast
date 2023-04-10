@@ -1,29 +1,19 @@
+@import "../styleMinxin";
+
 .overviewContainer {
-  display: flex;
-  flex: 1;
-  justify-content: flex-start;
-  flex-wrap: wrap;
   padding: 1rem 0;
 
-  .item {
-    flex-basis: 33%;
-  }
-}
+  @include flexBox($direction: $row, $justifyContent: $flexStart, $wrap: $flexWrap);
 
-@media screen and (max-width: 980px) {
-  .overviewContainer {
-    flex: none;
-    .item {
-      flex-basis: 50%;
+  .overviewCard {
+    @include flexBox($basis: 33%);
+
+    @include breakpoint(980) {
+      @include flexBox($basis: 50%);
     }
-  }
-}
 
-@media screen and (max-width: 600px) {
-  .overviewContainer {
-    flex: none;
-    .item {
-      flex-basis: 100%;
+    @include breakpoint(600) {
+      @include flexBox($basis: 100%);
     }
   }
 }

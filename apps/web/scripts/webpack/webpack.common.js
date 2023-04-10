@@ -16,7 +16,7 @@ module.exports = {
         publicPath: '/'
     },
     resolve: {
-        extensions: ['.js', '.json', '.ts', '.tsx']
+        extensions: ['.js', '.json', '.ts', '.tsx'],
     },
     module: {
         rules: [
@@ -41,15 +41,13 @@ module.exports = {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
                 include: [
-                    path.resolve('./src/components'),
-                    path.resolve(__dirname, '../../../common'),
+                    path.resolve('./src/components')
                 ]
             },
             {
                 test: /\.scss$/,
                 include: [
-                    path.resolve('./src/components'),
-                    path.resolve(__dirname, '../../../common'),
+                    path.resolve('./src/components')
                 ],
                 use: [
                     'style-loader', // creates style nodes from JS strings
@@ -68,7 +66,6 @@ module.exports = {
                         }
 
                     }, // translates CSS into CommonJS
-                    'resolve-url-loader',
                     {
                         loader: 'sass-loader',
                         options: {
@@ -83,8 +80,6 @@ module.exports = {
                 loader: 'ts-loader',
                 include: [
                     path.resolve(__dirname, '../../../common'),
-                ],
-                exclude: [
                     path.resolve('./src'),
                 ],
                 options: {
@@ -95,29 +90,7 @@ module.exports = {
                         'react-native$': 'react-native-web'
                     }
                 }
-            },
-            {
-                test: /(?<!\.d)\.tsx?$/,
-                loader: 'ts-loader',
-                exclude: [
-                    path.resolve(__dirname, '../../../common'),
-                ],
-                include: [
-                    path.resolve('./src'),
-                ],
-                options: {
-                    transpileOnly: true
-                }
-            },
-            {
-                test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-                use: {
-                    loader: 'url-loader',
-                    options: {
-                        limit: 100000
-                    }
-                }
-            },
+            }
         ]
     },
     plugins: [

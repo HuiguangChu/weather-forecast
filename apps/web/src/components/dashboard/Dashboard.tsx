@@ -1,12 +1,12 @@
-import React, { memo, Suspense } from 'react';
+import React, { FC, memo, Suspense } from 'react';
 import { useSelector } from 'react-redux';
-import CityOverView from 'common/src/components/cityOverview/CityOverview';
+import OverviewCard from 'common/src/components/cityOverview/OverviewCard';
 import { useHistory } from 'react-router-dom';
 import { CityWeatherData } from 'common/src/services/types';
 import Loading from 'common/src/components/Loading';
 import styles from './Dashboard.scss';
 
-const Dashboard = memo(() => {
+const Dashboard: FC = memo(() => {
     const appRootState = useSelector((state: RootState) => state.appRoot);
     const history = useHistory();
     const onNavigateToDetailPage = (cityName: string) => {
@@ -15,8 +15,8 @@ const Dashboard = memo(() => {
     const renderCitiesList = () => {
         return appRootState?.citiesDataCollection?.map((cityData: CityWeatherData) => {
             return (
-                <li className={styles.item} key={cityData?.cityName}>
-                    <CityOverView
+                <li className={styles.overviewCard} key={cityData?.cityName}>
+                    <OverviewCard
                         cityName={cityData?.cityName}
                         temperature={cityData?.temperature}
                         onOpenCityDetails={onNavigateToDetailPage}

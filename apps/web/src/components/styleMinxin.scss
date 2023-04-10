@@ -1,0 +1,53 @@
+$row: row;
+$column: column;
+$center: center;
+$left: left;
+$right: right;
+$spaceBetween: space-between;
+$spaceAround: space-around;
+$flexStart: flex-start;
+$flexWrap: wrap;
+
+
+@mixin flexBox( $justifyContent: false,
+$flex: false,
+$direction: false,
+$alignItems: false,
+$basis: false,
+$wrap: false) {
+  display: flex;
+
+  @if $justifyContent != false {
+    justify-content: $justifyContent;
+  }
+
+  @if $flex != false {
+    flex: $flex;
+  }
+
+  @if $direction != false {
+    flex-direction: $direction;
+  }
+
+  @if $alignItems != false {
+    align-items: $alignItems;
+  }
+
+  @if $basis != false {
+    flex-basis: $basis;
+  }
+
+  @if $wrap != fase {
+    flex-wrap: $wrap;
+  }
+}
+
+@mixin breakpoint($point) {
+  @if $point == 980 {
+    @media (max-width: 980px) { @content; }
+  }
+
+  @else if $point == 600 {
+    @media (max-width: 600px) { @content; }
+  }
+}

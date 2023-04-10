@@ -7,10 +7,12 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "add": "^2.0.6",
+    "babel-loader": "^9.1.2",
     "common": "1.0.1",
     "connected-react-router": "^6.9.3",
     "react-dom": "^18.2.0",
     "react-native-web": "^0.19.2",
+    "react-navigation": "^4.4.4",
     "react-router-dom": "^5.2.0",
     "sass": "^1.61.0",
     "yarn": "^1.22.19"
@@ -20,7 +22,7 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --config ./scripts/webpack/webpack.dev-server.js",
     "eslint": "eslint --fix --parser-options=project:../../tsconfig.json --ext '.js,.jsx,.ts,.tsx' src/",
     "lint": "yarn eslint && yarn stylelint",
-    "stylelint": "stylelint './src/components/*.scss'",
+    "stylelint": "stylelint ./src/components/*.scss",
     "test": "jest --config ../../jest.config.js"
   },
   "browserslist": {

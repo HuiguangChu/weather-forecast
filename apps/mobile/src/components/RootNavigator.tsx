@@ -1,43 +1,51 @@
-import React, { memo, Fragment } from 'react';
+import React, {
+    memo, Fragment, useLayoutEffect, FC,
+} from 'react';
 import { NativeStackHeaderProps } from '@react-navigation/native-stack/src/types';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { HeaderBackButton, HeaderButtonProps } from '@react-navigation/elements';
 import { useSelector } from 'react-redux';
 import { RootState } from 'common/src/services/types';
 import Loading from 'common/src/components/Loading';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Details from './Details';
 import Dashboard from './Dashboard';
+import { getLocation } from '../services/locationService';
 
 const Stack = createNativeStackNavigator();
-const HeaderLeftBackButton = (props: HeaderButtonProps) => (
-    <Fragment>
-        {props.canGoBack
-        && (
-            <HeaderBackButton
-                {...props}
-            />
-        )}
-    </Fragment>
-);
 
-const RootNavigator = memo(() => {
+const RootNavigator: FC = memo(() => {
+    useLayoutEffect(() => {
+        getLocation();
+    }, []);
+
     const appRootState = useSelector((state: RootState) => state);
     if (!appRootState?.appRoot?.citiesDataCollection) {
         return <Loading />;
     }
+    const renderHeaderLeft = (props: HeaderButtonProps) => (
+        <Fragment>
+            {props.canGoBack
+            && (
+                <HeaderBackButton
+                    {...props}
+                />
+            )}
+        </Fragment>
+    );
 
     return (
         <NavigationContainer>
             <Stack.Navigator screenOptions={{
-                headerLeft: (props: HeaderButtonProps) => HeaderLeftBackButton(props),
+                headerLeft: (props: HeaderButtonProps) => renderHeaderLeft(props),
                 headerStyle: {
                     height: 60,
                 },
                 headerTitleStyle: {
                     fontWeight: 'bold',
-                    fontSize: 20,
+                    fontSize: 18,
                 },
+                headerTitleAlign: 'center',
             }}
             >
                 <Stack.Screen

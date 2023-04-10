@@ -1,5 +1,6 @@
 import React, { FC, memo } from 'react';
 import { Text, StyleSheet, Pressable } from 'react-native';
+import styleMixin from '../stylesMixin';
 
 interface CityOverviewProps {
    cityName: string;
@@ -7,14 +8,17 @@ interface CityOverviewProps {
    onOpenCityDetails: (cityName: string) => void;
 }
 
-const CityOverviewCard: FC<CityOverviewProps> = memo(({ cityName, temperature, onOpenCityDetails }: CityOverviewProps) => {
+const OverviewCard: FC<CityOverviewProps> = memo(({ cityName, temperature, onOpenCityDetails }: CityOverviewProps) => {
     const onCityClick = () => {
         onOpenCityDetails(cityName);
     };
+
     return (
         <Pressable
             style={({ pressed }) => [
-                { backgroundColor: pressed ? '#eef6f8' : '#cce2f8' }, styles.item]}
+                { backgroundColor: pressed ? '#eef6f8' : '#cce2f8' },
+                styleMixin.flexRowWithSpaceBetween,
+                styles.cityCard]}
             onPress={onCityClick}
             accessibilityLabel="Go back"
             accessibilityHint="Navigates to the previous screen"
@@ -30,15 +34,13 @@ const CityOverviewCard: FC<CityOverviewProps> = memo(({ cityName, temperature, o
     );
 });
 
-export default CityOverviewCard;
+export default OverviewCard;
 
 const styles = StyleSheet.create({
-    item: {
+    cityCard: {
         padding: 30,
         marginVertical: 8,
         marginHorizontal: 16,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
         flexGrow: 1,
     },
 });

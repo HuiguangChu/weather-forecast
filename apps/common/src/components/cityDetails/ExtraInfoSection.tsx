@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { CityWeatherData } from '../../services/types';
+import styleMixin from '../stylesMixin';
 
 interface ExtraInfoSectionProps {
     cityDetails: CityWeatherData;
@@ -28,7 +29,7 @@ const ExtraInfoSection = memo(({ cityDetails }: ExtraInfoSectionProps) => {
     const renderInfoItems = () => {
         return infoItemsToDisplay.map((infoItemRow: string[], index: number) => {
             return (
-                <View style={styles.infoItemRow} key={index}>
+                <View style={styleMixin.flexRowWithSpaceBetween} key={index}>
                     {infoItemRow.map((key: string) => {
                         return renderInfoItem(key, cityDetails[key]);
                     })}
@@ -38,7 +39,7 @@ const ExtraInfoSection = memo(({ cityDetails }: ExtraInfoSectionProps) => {
     };
 
     return (
-        <View style={styles.container}>
+        <View style={styleMixin.alignContentAndItemCentered}>
             {renderInfoItems()}
         </View>
     );
@@ -47,16 +48,6 @@ const ExtraInfoSection = memo(({ cityDetails }: ExtraInfoSectionProps) => {
 export default ExtraInfoSection;
 
 const styles = StyleSheet.create({
-    container: {
-        flexDirection: 'column',
-        alignItems: 'center',
-        alignContent: 'center',
-    },
-    infoItemRow: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-    },
-
     infoItemCol: {
         padding: 15,
         alignItems: 'center',

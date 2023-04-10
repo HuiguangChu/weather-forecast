@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { FC, memo, ReactNode } from 'react';
 import {
     ImageBackground,
     StyleSheet,
@@ -9,7 +9,11 @@ import DefaultImage from '../../assets/background-cloud.png';
 
 const DEFAULT_IMAGE = Image.resolveAssetSource(DefaultImage).uri;
 
-const PageWithBackground = memo((props) => {
+interface ComponentProps {
+    children: ReactNode;
+}
+
+const PageWithBackground: FC<ComponentProps> = memo((props: ComponentProps) => {
     return (
         <View style={styles.container}>
             <ImageBackground

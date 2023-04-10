@@ -1,3 +1,5 @@
+@import "./styleMinxin";
+
 html,
 body {
   width: 100%;
@@ -18,8 +20,8 @@ ol {
 }
 
 .page {
-  display: flex;
-  flex-direction: column;
+  @include flexBox($direction: $column);
+
   background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
@@ -31,13 +33,12 @@ ol {
   background-image: url('https://www.yr.no/assets/images/background-cloud.jpg'), -webkit-gradient(linear, left top, left bottom, from(#e1f0fa), to(#fff));
 
   .pageHeader {
+    @include flexBox($alignItems: $center, $justifyContent: $center);
+
     position: relative;
-    display: flex;
     padding: 2rem;
     font-weight: bold;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     -webkit-box-shadow: 0 2px 1px 0 rgba(204, 226, 248, 0.5);
     -moz-box-shadow: 0 2px 1px 0 rgba(204, 226, 248, 0.5);
     box-shadow: 0 2px 1px 0 rgba(204, 226, 248, 0.5);

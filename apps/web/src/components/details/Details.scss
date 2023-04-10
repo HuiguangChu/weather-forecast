@@ -1,15 +1,10 @@
-.detailsWrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  flex: 1;
-}
+@import "../styleMinxin";
 
-@media screen and (max-width: 600px){
-  .detailsWrapper {
-    flex-direction: column;
-    justify-content: center;
+.detailsWrapper {
+  @include flexBox($flex: 1, $direction: $row, $alignItems: $center, $justifyContent: $spaceAround);
+
+  @include breakpoint(600) {
+    @include flexBox($justifyContent: $center, $direction: $column);
 
     .temperatureInfo {
       margin-bottom: 5rem;
