@@ -27,9 +27,9 @@ const ExtraInfoSection = memo(({ cityDetails }: ExtraInfoSectionProps) => {
         );
     };
     const renderInfoItems = () => {
-        return infoItemsToDisplay.map((infoItemRow: string[], index: number) => {
+        return infoItemsToDisplay.map((infoItemRow: string[]) => {
             return (
-                <View style={styleMixin.flexRowWithSpaceBetween} key={index}>
+                <View style={styleMixin.flexRowWithSpaceBetween} key={infoItemRow}>
                     {infoItemRow.map((key: string) => {
                         return renderInfoItem(key, cityDetails[key]);
                     })}

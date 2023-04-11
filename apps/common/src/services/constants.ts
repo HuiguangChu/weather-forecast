@@ -1,4 +1,4 @@
-export enum Units {
+export enum TemperatureUnits {
     METRIC = 'metric',
     STANDARD = 'standard',
     IMPERIAL = 'imperial'

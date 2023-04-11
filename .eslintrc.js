@@ -41,6 +41,10 @@ module.exports = {
         }
     },
     'rules': {
+        'no-undef': 'off',
+        "no-shadow": "off",
+        "default-param-last": 0,
+        "@typescript-eslint/no-shadow": "warn",
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-var-requires': 'off',
         '@typescript-eslint/no-unused-vars': 'error',
@@ -67,7 +71,7 @@ module.exports = {
             objects: 'always-multiline',
             imports: 'always-multiline',
             exports: 'always-multiline',
-            functions: 'ignore'
+            functions: 'ignore',
         }],
         'consistent-return': ['error', { treatUndefinedAsUnspecified: false }],
         'import/no-extraneous-dependencies': 'off',
@@ -91,7 +95,7 @@ module.exports = {
             'ForInStatement',
             'ForOfStatement',
             'LabeledStatement',
-            'WithStatement'
+            'WithStatement',
         ],
         'no-script-url': 'off',
         'no-unused-vars': 'off', // To avoid conflicts with @typescript-eslint/no-unused-vars
@@ -105,32 +109,7 @@ module.exports = {
         'react/jsx-indent-props': ['error', 4],
         'react/jsx-filename-extension': 'off',
         'react/jsx-fragments': 'off',
-        'react/require-default-props': 'off',
-        '@typescript-eslint/no-empty-interface': 'off', // Temporary
-        'default-case': 'off', // Temporary
-        'import/no-dynamic-require': 'off', // Temporary
-        'import/no-named-default': 'off', // Temporary
-        'import/prefer-default-export': 'off', // Temporary
-        'jsx-a11y/alt-text': 'warn', // Temporary
-        'jsx-a11y/iframe-has-title': 'warn', // Temporary
-        'max-classes-per-file': 'off', // Temporary
-        'no-case-declarations': 'off', // Temporary
-        'no-loop-func': 'off', // Temporary
-        'no-nested-ternary': 'off', // Temporary
-        'no-restricted-properties': 'warn', // Temporary
-        'no-shadow': 'off', // Temporary
-        'react/jsx-props-no-spreading': 'off', // Temporary
-        'react/jsx-no-bind': 'off', // Temporary
-        'react/jsx-no-target-blank': 'off', // Temporary
-        'react/no-did-update-set-state': 'off', // Temporary
-        'react/no-find-dom-node': 'off', // Temporary
-        'react/no-unused-state': 'off', // Temporary
-        'react/no-array-index-key': 'off', // Temporary
-        'react/no-access-state-in-setstate': 'off', // Temporary
-        'react/prefer-stateless-function': 'off',
-        'react/prop-types': 'off', // Temporary
-        'react/static-property-placement': ['error', 'static public field'],
-        'react/sort-comp': 'off' // Temporary
+        'react/require-default-props': 'off'
     },
     overrides: [
         {

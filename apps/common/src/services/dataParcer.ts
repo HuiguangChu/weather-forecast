@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { CityWeatherData } from './types';
 
-export const parseCityWeatherData = (data: {[key: string]: any}): CityWeatherData => {
+const parseCityWeatherData = (data: {[key: string]: any}): CityWeatherData => {
     if (!data) {
         return null;
     }
@@ -22,3 +22,5 @@ export const parseCityWeatherData = (data: {[key: string]: any}): CityWeatherDat
         humidity: main?.humidity ? `${main?.humidity}%` : null,
     };
 };
+
+export default parseCityWeatherData;

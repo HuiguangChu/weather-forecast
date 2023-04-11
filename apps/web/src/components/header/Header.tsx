@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom';
 import styles from '../App.scss';
 
 interface HeaderProps {
-    title: string;
+  title: string;
 }
+
 const Header: FC<HeaderProps> = memo(({ title }: HeaderProps) => {
     return (
         <header className={styles.pageHeader}>

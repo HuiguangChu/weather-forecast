@@ -4,8 +4,8 @@ import {
 import { call } from 'redux-saga-test-plan/matchers';
 import axios, { AxiosResponse } from 'axios';
 import { allCitiesWeatherDataLoaded, AppRootActionTypes } from './actions';
-import { parseCityWeatherData } from '../../services/dataParcer';
-import { pathForOpenWeatherData, Units } from '../../services/constants';
+import parseCityWeatherData from '../../services/dataParcer';
+import { pathForOpenWeatherData, TemperatureUnits } from '../../services/constants';
 import { AppRootState, CityWeatherData, RootState } from '../../services/types';
 
 export function* fetchWeatherDataForCity(url: string) {
@@ -29,7 +29,7 @@ export const getAppRootState = (state: RootState) => state.appRoot;
 export function* callLoadDataFromOpenWeather() {
     const appRootState: AppRootState = yield select(getAppRootState);
     const allRequestUrls = [];
-    const units = Units.METRIC; // this can be get from localStorage, here just use a default one
+    const units = TemperatureUnits.METRIC; // this can be get from localStorage, here just use a default one
     if (!appRootState) {
         return;
     }
@@ -58,9 +58,11 @@ export function* callLoadDataFromOpenWeather() {
 }
 
 function* watchLoadWeatherData() {
-    yield takeLatest([AppRootActionTypes.SET_CURRENT_POSITION,
-        AppRootActionTypes.LOAD_WEATHER_DATA_FOR_DEFAULT_CITIES],
-    callLoadDataFromOpenWeather);
+    yield takeLatest(
+        [AppRootActionTypes.SET_CURRENT_POSITION,
+            AppRootActionTypes.LOAD_WEATHER_DATA_FOR_DEFAULT_CITIES],
+        callLoadDataFromOpenWeather
+    );
 }
 
 function* rootAppSaga() {

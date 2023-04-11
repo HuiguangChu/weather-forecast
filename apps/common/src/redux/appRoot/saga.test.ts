@@ -5,7 +5,7 @@ import { throwError } from 'redux-saga-test-plan/providers';
 import { appRootReducer, initialState } from './reducer';
 import { callLoadDataFromOpenWeather, fetchWeatherDataForCity, getAppRootState } from './saga';
 import { allCitiesWeatherDataLoaded, AppRootActionTypes } from './actions';
-import { parseCityWeatherData } from '../../services/dataParcer';
+import parseCityWeatherData from '../../services/dataParcer';
 import { apiResponseMock, currentPositionMock } from './mockedData';
 import { AppRootState } from '../../services/types';
 

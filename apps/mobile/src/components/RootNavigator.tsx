@@ -1,16 +1,16 @@
 import React, {
-    memo, Fragment, useLayoutEffect, FC,
+    memo, useLayoutEffect, FC,
 } from 'react';
 import { NativeStackHeaderProps } from '@react-navigation/native-stack/src/types';
 import { NavigationContainer } from '@react-navigation/native';
-import { HeaderBackButton, HeaderButtonProps } from '@react-navigation/elements';
+import { HeaderBackButton, HeaderBackButtonProps } from '@react-navigation/elements';
 import { useSelector } from 'react-redux';
 import { RootState } from 'common/src/services/types';
 import Loading from 'common/src/components/Loading';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Details from './Details';
 import Dashboard from './Dashboard';
-import { getLocation } from '../services/locationService';
+import getLocation from '../services/locationService';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,21 +23,17 @@ const RootNavigator: FC = memo(() => {
     if (!appRootState?.appRoot?.citiesDataCollection) {
         return <Loading />;
     }
-    const renderHeaderLeft = (props: HeaderButtonProps) => (
-        <Fragment>
-            {props.canGoBack
+    const renderHeaderLeft = (canGoBack: boolean) => (
+        canGoBack
             && (
-                <HeaderBackButton
-                    {...props}
-                />
-            )}
-        </Fragment>
+                <HeaderBackButton canGoBack={canGoBack} />
+            )
     );
 
     return (
         <NavigationContainer>
             <Stack.Navigator screenOptions={{
-                headerLeft: (props: HeaderButtonProps) => renderHeaderLeft(props),
+                headerLeft: ({ canGoBack }: HeaderBackButtonProps) => renderHeaderLeft(canGoBack),
                 headerStyle: {
                     height: 60,
                 },

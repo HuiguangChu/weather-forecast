@@ -1,4 +1,4 @@
-/* eslint-disable  @typescript-eslint/camelcase */
+/* eslint-disable camelcase */
 import { CurrentPosition } from '../../services/types';
 
 export const currentPositionMock: CurrentPosition = {

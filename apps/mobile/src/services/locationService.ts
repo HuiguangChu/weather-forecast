@@ -1,8 +1,8 @@
 import { requestForegroundPermissionsAsync, getCurrentPositionAsync, LocationObject } from 'expo-location';
 import { loadWeatherDataForDefaultCities, setCurrentPosition } from 'common/src/redux/appRoot/actions';
-import { store } from '../redux/store';
+import store from '../redux/store';
 
-export const getLocation = async () => {
+const getLocation = async () => {
     const { status } = await requestForegroundPermissionsAsync();
     if (status !== 'granted') {
         throw new Error('Permission to access location was denied');
@@ -17,3 +17,5 @@ export const getLocation = async () => {
             store.dispatch(loadWeatherDataForDefaultCities());
         });
 };
+
+export default getLocation;

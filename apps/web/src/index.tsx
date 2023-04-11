@@ -5,7 +5,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import { createRoot, Root } from 'react-dom/client';
 import { createBrowserHistory, History } from 'history';
 import App from './components/App';
-import { store } from './redux/store';
+import store from './redux/store';
 
 const history: History = createBrowserHistory();
 const container: HTMLElement = document.getElementById('react-root');

@@ -14,9 +14,11 @@ const reducer: Reducer = combineReducers({ appRoot: appRootReducer, router: conn
 const sagaMiddleware: Middleware = createSagaMiddleware();
 const middlewares: Middleware[] = [routerMiddleware(history), sagaMiddleware];
 
-export const store = configureStore({
+const store = configureStore({
     reducer,
     enhancers: [applyMiddleware(...middlewares)] as ReadonlyArray<StoreEnhancer>,
 });
 
 sagaMiddleware.run(rootSaga);
+
+export default store;

@@ -9,12 +9,14 @@ import styles from './App.scss';
 import Dashboard from './dashboard/Dashboard';
 import Header from './header/Header';
 import Details from './details/Details';
-import { getLocation } from '../services/locationService';
+import getLocation from '../services/locationService';
 
 const App: FC = memo(() => {
     // ask for location permission if not have
-    useLayoutEffect(() => getLocation(),
-        []);
+    useLayoutEffect(
+        () => getLocation(),
+        [],
+    );
 
     const { cityName } = useParams();
     const { appRoot }: RootState = useSelector((state: RootState) => state);

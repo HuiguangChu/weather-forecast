@@ -9,9 +9,11 @@ const reducer: Reducer = combineReducers({ appRoot: appRootReducer });
 const sagaMiddleware: Middleware = createSagaMiddleware();
 const middlewares: Middleware[] = [sagaMiddleware];
 
-export const store = configureStore({
+const store = configureStore({
     reducer,
     enhancers: [applyMiddleware(...middlewares)] as ReadonlyArray<StoreEnhancer>,
 });
 
 sagaMiddleware.run(rootSaga);
+
+export default store;

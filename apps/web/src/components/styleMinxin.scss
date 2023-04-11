@@ -43,10 +43,8 @@ $wrap: false) {
 
 @mixin breakpoint($point) {
   @if $point == 980 {
-    @media (max-width: 980px) { @content; }
-  }
-
-  @else if $point == 600 {
-    @media (max-width: 600px) { @content; }
+    @media (width <= 980px) { @content; }
+  } @else if $point == 600 {
+    @media (width <= 600px) { @content; }
   }
 }

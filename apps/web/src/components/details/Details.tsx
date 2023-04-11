@@ -12,7 +12,8 @@ const Details: FC = memo(() => {
     const { cityName } = useParams();
     const { appRoot: { citiesDataCollection } }: RootState = useSelector((state: RootState) => state);
     const cityDetails: CityWeatherData = citiesDataCollection?.find(
-        (weatherData: CityWeatherData) => weatherData?.cityName === cityName);
+        (weatherData: CityWeatherData) => weatherData?.cityName === cityName,
+    );
 
     // for the case then use just refresh, may has error
     if (!cityDetails) {

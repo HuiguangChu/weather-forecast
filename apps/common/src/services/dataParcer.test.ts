@@ -1,5 +1,5 @@
 import { CityWeatherData } from './types';
-import { parseCityWeatherData } from './dataParcer';
+import parseCityWeatherData from './dataParcer';
 import { apiResponseMock } from '../redux/appRoot/mockedData';
 
 describe('test dataParcer service', () => {

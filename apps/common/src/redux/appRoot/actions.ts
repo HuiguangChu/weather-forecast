@@ -32,9 +32,11 @@ export const loadWeatherDataForDefaultCities = (): LoadWeatherDataForDefaultCiti
 );
 
 export const allCitiesWeatherDataLoaded = (citiesDataCollection: CityWeatherData[]): WeatherDataLoadedAction => action(
-    AppRootActionTypes.ALL_CITIES_WEATHER_DATA_LOADED, { citiesDataCollection }
+    AppRootActionTypes.ALL_CITIES_WEATHER_DATA_LOADED,
+    { citiesDataCollection }
 );
 
 export const setCurrentPosition = (position: CurrentPosition): SetCurrentPositionAction => action(
-    AppRootActionTypes.SET_CURRENT_POSITION, { position }
+    AppRootActionTypes.SET_CURRENT_POSITION,
+    { position }
 );

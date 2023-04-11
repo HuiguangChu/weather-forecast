@@ -4,12 +4,11 @@ import OverviewCard from 'common/src/components/cityOverview/OverviewCard';
 import { useHistory } from 'react-router-dom';
 import { AppRootState, CityWeatherData, RootState } from 'common/src/services/types';
 import Loading from 'common/src/components/Loading';
-import { History } from 'history';
 import styles from './Dashboard.scss';
 
 const Dashboard: FC = memo(() => {
     const appRootState: AppRootState = useSelector((state: RootState) => state.appRoot);
-    const history: History = useHistory();
+    const history = useHistory();
     const onNavigateToDetailPage = (cityName: string) => {
         history.push(`/details/${cityName}`);
     };
