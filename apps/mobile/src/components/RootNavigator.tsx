@@ -19,7 +19,7 @@ const RootNavigator: FC = memo(() => {
         getLocation();
     }, []);
 
-    const appRootState = useSelector((state: RootState) => state);
+    const appRootState: RootState = useSelector((state: RootState) => state);
     if (!appRootState?.appRoot?.citiesDataCollection) {
         return <Loading />;
     }

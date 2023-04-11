@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { store } from '../redux/store';
 import RootNavigator from './RootNavigator';
 
-const App: FC<{}> = memo(() => {
+const App: FC = memo(() => {
     return (
         <Provider store={store}>
             <RootNavigator />

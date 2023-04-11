@@ -22,7 +22,6 @@ export interface CityWeatherData {
 
 export interface AppRootState {
     defaultCities: string[];
-    isDataLoading: boolean;
     citiesDataCollection?: CityWeatherData[];
     currentPosition?: CurrentPosition;
 }

@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { FC, memo } from 'react';
 import {
     View, FlatList, StyleSheet, FlatListProps,
 } from 'react-native';
@@ -13,7 +13,7 @@ interface ComponentProps {
     navigation: NativeStackNavigationProp<ParamListBase>;
 }
 
-const Dashboard = memo(({ navigation }: ComponentProps) => {
+const Dashboard: FC<ComponentProps> = memo(({ navigation }: ComponentProps) => {
     const { citiesDataCollection } = useSelector((state: RootState) => state.appRoot);
 
     const onNavigateToCityDetails = (cityName: string) => {

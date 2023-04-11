@@ -5,9 +5,6 @@ import { store } from '../redux/store';
 export const getLocation = async () => {
     const { status } = await requestForegroundPermissionsAsync();
     if (status !== 'granted') {
-        // should show some message to user, but still to continue
-        alert('Permission to access location was denied');
-
         throw new Error('Permission to access location was denied');
     }
 
@@ -16,8 +13,7 @@ export const getLocation = async () => {
             latitude: location.coords.latitude,
             longitude: location.coords.longitude,
         })))
-        .catch((error: Error) => {
-            console.log(error);
+        .catch(() => {
             store.dispatch(loadWeatherDataForDefaultCities());
         });
 };

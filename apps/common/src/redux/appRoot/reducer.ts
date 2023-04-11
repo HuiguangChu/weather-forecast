@@ -2,9 +2,8 @@ import { AppRootAction, AppRootActionTypes } from './actions';
 import { AppRootState } from '../../services/types';
 
 export const initialState: AppRootState = {
-    defaultCities: ['Bergen', 'Stockholm'],
+    defaultCities: ['London', 'Berlin'],
     citiesDataCollection: null,
-    isDataLoading: true,
     currentPosition: null,
 };
 
@@ -14,7 +13,6 @@ export const appRootReducer = (state: AppRootState = initialState, action: AppRo
         return {
             ...state,
             citiesDataCollection: action.payload.citiesDataCollection,
-            isDataLoading: false,
         };
     case AppRootActionTypes.SET_CURRENT_POSITION:
         return {

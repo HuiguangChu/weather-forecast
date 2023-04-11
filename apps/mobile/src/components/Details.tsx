@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Route } from '@react-navigation/native';
 import TemperatureSection from 'common/src/components/cityDetails/TemperatureSection';
 import ExtraInfoSection from 'common/src/components/cityDetails/ExtraInfoSection';
-import { CityWeatherData, RootState } from 'common/src/services/types';
+import { AppRootState, CityWeatherData, RootState } from 'common/src/services/types';
 import GenericError from 'common/src/components/GenericError';
 import PageWithBackground from './PageWithBackground';
 import ErrorAlert from './ErrorAlert';
@@ -14,8 +14,8 @@ interface ComponentProps {
 }
 
 const CityDetails: FC<ComponentProps> = memo(({ route }: ComponentProps) => {
-    const appRootState = useSelector((state: RootState) => state?.appRoot);
-    const cityDetails = appRootState?.citiesDataCollection?.find((cityDate: CityWeatherData) => {
+    const appRootState: AppRootState = useSelector((state: RootState) => state?.appRoot);
+    const cityDetails: CityWeatherData = appRootState?.citiesDataCollection?.find((cityDate: CityWeatherData) => {
         return cityDate.cityName === route.params.cityName;
     });
 

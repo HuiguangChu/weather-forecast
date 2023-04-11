@@ -10,10 +10,11 @@ import styles from './Details.scss';
 
 const Details: FC = memo(() => {
     const { cityName } = useParams();
-    const { appRoot: { citiesDataCollection } } = useSelector((state: RootState) => state);
-    const cityDetails = citiesDataCollection?.find(
+    const { appRoot: { citiesDataCollection } }: RootState = useSelector((state: RootState) => state);
+    const cityDetails: CityWeatherData = citiesDataCollection?.find(
         (weatherData: CityWeatherData) => weatherData?.cityName === cityName);
 
+    // for the case then use just refresh, may has error
     if (!cityDetails) {
         return <GenericError />;
     }

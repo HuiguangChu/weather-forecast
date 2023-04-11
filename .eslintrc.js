@@ -138,6 +138,15 @@ module.exports = {
             rules: {
                 '@typescript-eslint/explicit-function-return-type': 'off'
             }
+        },
+        {
+            "files": [
+                "**/*.test.ts",
+                "**/*.test.tsx"
+            ],
+            "env": {
+                "jest": true
+            }
         }
     ]
 };

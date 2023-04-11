@@ -2,14 +2,14 @@ import * as React from 'react';
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
-import { createRoot } from 'react-dom/client';
-import { createBrowserHistory } from 'history';
+import { createRoot, Root } from 'react-dom/client';
+import { createBrowserHistory, History } from 'history';
 import App from './components/App';
 import { store } from './redux/store';
 
-const history = createBrowserHistory();
-const container = document.getElementById('react-root');
-const root = createRoot(container);
+const history: History = createBrowserHistory();
+const container: HTMLElement = document.getElementById('react-root');
+const root: Root = createRoot(container);
 
 root.render(
     <Provider store={store}>

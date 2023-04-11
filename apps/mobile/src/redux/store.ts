@@ -1,13 +1,13 @@
 import {
-    applyMiddleware, combineReducers, configureStore, StoreEnhancer,
+    applyMiddleware, combineReducers, configureStore, StoreEnhancer, Reducer, Middleware,
 } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from 'common/src/redux/rootSaga';
 import { appRootReducer } from 'common/src/redux/appRoot/reducer';
 
-const reducer = combineReducers({ appRoot: appRootReducer });
-const sagaMiddleware = createSagaMiddleware();
-const middlewares: any = [sagaMiddleware];
+const reducer: Reducer = combineReducers({ appRoot: appRootReducer });
+const sagaMiddleware: Middleware = createSagaMiddleware();
+const middlewares: Middleware[] = [sagaMiddleware];
 
 export const store = configureStore({
     reducer,

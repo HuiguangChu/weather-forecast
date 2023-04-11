@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import DefaultImage from '../../assets/background-cloud.png';
 
-const DEFAULT_IMAGE = Image.resolveAssetSource(DefaultImage).uri;
+const DEFAULT_IMAGE: string = Image.resolveAssetSource(DefaultImage).uri;
 
 interface ComponentProps {
     children: ReactNode;

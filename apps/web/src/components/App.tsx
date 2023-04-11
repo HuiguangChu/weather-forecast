@@ -17,7 +17,7 @@ const App: FC = memo(() => {
         []);
 
     const { cityName } = useParams();
-    const { appRoot } = useSelector((state: RootState) => state);
+    const { appRoot }: RootState = useSelector((state: RootState) => state);
 
     const renderPageBody = () => {
         if (!appRoot?.citiesDataCollection) {
