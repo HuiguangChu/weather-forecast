@@ -6,7 +6,7 @@ They can be imported as if they were installed node modules, for example:
     
     import Loading from 'common/src/components/Loading';
    
-**Attention: Actual app like web and mobile must not include files from each other, only from common**
+**Attention:** Actual app like web and mobile must **NOT** include files from each other, only from common
  
 ## Project main structure
 ```
@@ -72,6 +72,7 @@ Main Frameworks/libraries used:
   * web: [navigator.geolocation](https://developer.mozilla.org/en-US/docs/web/api/navigator/geolocation) being used
 
 ## Debugging
+
 **First of all** If you don't have environment setup for react-native, 
 you have to [check this document](https://reactnative.dev/docs/environment-setup?guide=native) 
 or suggest you to install [expo-go](https://expo.dev/expo-go), which make debugging much easier
@@ -125,8 +126,12 @@ The page will be reloaded if you make edits**.
    * `cd apps/mobile` -> go to the mobile workspace dir
    * `yarn lint` -> run test
    
-## Where could be improved?
+## What could be improved?
+
 * Make better UI. For example: font family, size, theme, and so on.
+
+* An search input should be added, allow user to search a specific place,
+should support ambiguous text.
 
 * Make an API gateway to optimize the FE api calls. OpenWeatherMap only supports the one call for one city, 
 given that we have 10 cities or more, could cause performance issue
@@ -136,7 +141,7 @@ But we need to write more tests on component level as well.
 
 * Caption/Localization: [react-i18next](https://react.i18next.com/) can be one of th option
 
-* Error tracking/analyzing
+* Error tracking/analyzing.
 
 * Take care more about accessibility and usability. 
   * Check accessibility locally and online(https://www.accessibilitychecker.org/) and improve
@@ -146,12 +151,12 @@ But we need to write more tests on component level as well.
   * ...
      
 * Implement **settings**:  
-    * User should have option to turn off the location service
-    * User would like to receive warning notification depends on the weather status
-    * User would like to set the units:
-        * temperature unit
-        * wind unit
-        * visibility unit
+    * An option to turn off/on the location service
+    * Option for receive warning notification depends on the weather status
+    * Units:
+      * temperature unit
+      * wind unit
+      * visibility unit
     * Language change
     * Font size/color change
     * App theme change
