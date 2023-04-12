@@ -11,10 +11,10 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = memo(({ title }: HeaderProps) => {
     return (
         <header className={styles.pageHeader}>
-            <Link to="/" className={styles.goBackButton} aria-label="Go back to dashboard" role="link">
+            <Link to="/" className={styles.goBackButton} aria-label="Go back to locations page" role="link">
                 {title && <FontAwesomeIcon icon={faArrowLeft} />}
             </Link>
-            <span>{title || 'Dashboard' }</span>
+            <h4>{title || 'Locations' }</h4>
         </header>
     );
 });

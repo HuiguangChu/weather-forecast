@@ -1,6 +1,7 @@
 import React, { FC, memo, ReactNode } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import styleMixin from './stylesMixin';
+import StyledText from './StyledText';
 
 interface GenericErrorProps {
     errorAlertComponent?: ReactNode;
@@ -12,9 +13,9 @@ const GenericError: FC<GenericErrorProps> = memo(({ errorAlertComponent, errorMe
         <View style={styleMixin.containerWithContentCenterFullHeight}>
             { errorAlertComponent
             || (
-                <Text>
+                <StyledText>
                     { errorMessage || 'OBS!Something went wrong, please try again!' }
-                </Text>
+                </StyledText>
             ) }
         </View>
     );

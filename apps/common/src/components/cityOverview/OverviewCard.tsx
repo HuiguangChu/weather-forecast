@@ -1,6 +1,7 @@
 import React, { FC, memo } from 'react';
-import { Text, StyleSheet, Pressable } from 'react-native';
+import { StyleSheet, Pressable, PressableProps } from 'react-native';
 import styleMixin from '../stylesMixin';
+import StyledText from '../StyledText';
 
 interface CityOverviewProps {
    cityName: string;
@@ -9,27 +10,27 @@ interface CityOverviewProps {
 }
 
 const OverviewCard: FC<CityOverviewProps> = memo(({ cityName, temperature, onOpenCityDetails }: CityOverviewProps) => {
-    const onCityClick = () => {
+    const onCityCardClick = () => {
         onOpenCityDetails(cityName);
     };
 
     return (
         <Pressable
-            style={({ pressed }) => [
-                { backgroundColor: pressed ? '#eef6f8' : '#cce2f8' },
+            style={({ pressed, hovered }: PressableProps) => [
+                { backgroundColor: pressed || hovered ? '#f9f9f9' : '#ffffff' },
                 styleMixin.flexRowWithSpaceBetween,
                 styles.cityCard]}
-            onPress={onCityClick}
-            accessibilityLabel="Go back"
-            accessibilityHint="Navigates to the previous screen"
-            accessibilityRole="link"
+            onPress={onCityCardClick}
+            aria-label="Open city details"
+            accessibilityHint="Navigates to the city details view"
+            role="link"
         >
-            <Text>{cityName}</Text>
-            <Text>
+            <StyledText content={cityName} />
+            <StyledText size={15}>
                 {temperature}
                 {' '}
                 &#8451;
-            </Text>
+            </StyledText>
         </Pressable>
     );
 });
@@ -39,8 +40,14 @@ export default OverviewCard;
 const styles = StyleSheet.create({
     cityCard: {
         padding: 30,
-        marginVertical: 8,
-        marginHorizontal: 16,
+        marginVertical: 5,
+        marginHorizontal: 10,
         flexGrow: 1,
+        flexDirection: 'row',
+        borderRadius: 10,
+        shadowColor: '#000',
+        shadowRadius: 3,
+        shadowOpacity: 0.3,
+        elevation: 3,
     },
 });

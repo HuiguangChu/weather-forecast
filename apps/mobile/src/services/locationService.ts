@@ -3,9 +3,14 @@ import { loadWeatherDataForDefaultCities, setCurrentPosition } from 'common/src/
 import store from '../redux/store';
 
 const getLocation = async () => {
+    // Ask the user to grant permissions for location while the app is in the foreground.
     const { status } = await requestForegroundPermissionsAsync();
+
     if (status !== 'granted') {
-        throw new Error('Permission to access location was denied');
+        // if not granted, we just load data for default cities, and end up the flow
+        store.dispatch(loadWeatherDataForDefaultCities());
+
+        return;
     }
 
     getCurrentPositionAsync()

@@ -1,7 +1,8 @@
 import React, { FC, memo } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { CityWeatherData } from '../../services/types';
 import styleMixin from '../stylesMixin';
+import StyledText from '../StyledText';
 
 interface TemperatureSectionProps {
     cityDetails: CityWeatherData;
@@ -13,23 +14,27 @@ const TemperatureSection: FC<TemperatureSectionProps> = memo(({ cityDetails }: T
 
     return (
         <View style={styleMixin.alignContentAndItemCentered}>
-            <Text>{weatherStatus}</Text>
-            <Text style={styles.temperature}>
-                {temperature}
-                {' '}
-                &#8451;
-            </Text>
+            <StyledText content={weatherStatus} />
+            <View style={styles.temperature}>
+                <StyledText size={22} weight={700}>
+                    {temperature}
+                    {' '}
+                    &#8451;
+                </StyledText>
+            </View>
             <View style={styleMixin.flexRowWithSpaceBetween}>
-                <Text>
+                <StyledText>
                     {`H: ${maxTemperature}`}
                     {' '}
                     &#8451;
-                </Text>
-                <Text style={styles.minTemperature}>
-                    {`L: ${minTemperature}`}
-                    {' '}
-                    &#8451;
-                </Text>
+                </StyledText>
+                <View style={styles.minTemperature}>
+                    <StyledText>
+                        {`L: ${minTemperature}`}
+                        {' '}
+                        &#8451;
+                    </StyledText>
+                </View>
             </View>
         </View>
     );
@@ -39,8 +44,6 @@ export default TemperatureSection;
 
 const styles = StyleSheet.create({
     temperature: {
-        fontSize: 30,
-        fontWeight: 'bold',
         marginTop: 5,
         marginBottom: 5,
     },

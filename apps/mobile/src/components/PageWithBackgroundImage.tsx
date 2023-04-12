@@ -5,31 +5,32 @@ import {
     View,
     Image,
 } from 'react-native';
-import DefaultImage from '../../assets/background-cloud.png';
-
-const DEFAULT_IMAGE: string = Image.resolveAssetSource(DefaultImage).uri;
+import defaultImageSrc from '../../assets/background-cloud.png';
 
 interface ComponentProps {
     children: ReactNode;
+    backgroundImageUri?: string;
 }
 
-const PageWithBackground: FC<ComponentProps> = memo((props: ComponentProps) => {
+const PageWithBackgroundImage: FC<ComponentProps> = memo(({ children, backgroundImageUri }: ComponentProps) => {
+    const defaultImageUri = Image.resolveAssetSource(defaultImageSrc)?.uri;
+
     return (
         <View style={styles.container}>
             <ImageBackground
-                source={{ uri: DEFAULT_IMAGE }}
+                source={{ uri: backgroundImageUri || defaultImageUri }}
                 resizeMode="cover"
             >
-                {props?.children}
+                {children}
             </ImageBackground>
         </View>
     );
 });
 
-export default PageWithBackground;
+export default PageWithBackgroundImage;
 
 const styles = StyleSheet.create({
     container: {
-        height: '100%',
+        flex: 1,
     },
 });

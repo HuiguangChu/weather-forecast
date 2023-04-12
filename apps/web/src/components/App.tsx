@@ -8,7 +8,7 @@ import Loading from 'common/src/components/Loading';
 import styles from './App.scss';
 import Dashboard from './dashboard/Dashboard';
 import Header from './header/Header';
-import Details from './details/Details';
+import CityDetails from './cityDetails/CityDetails';
 import getLocation from '../services/locationService';
 
 const App: FC = memo(() => {
@@ -29,7 +29,9 @@ const App: FC = memo(() => {
         return (
             <Fragment>
                 <Header title={cityName} />
-                {cityName ? <Details /> : <Dashboard />}
+                <div className={styles.pageContent}>
+                    {cityName ? <CityDetails /> : <Dashboard />}
+                </div>
             </Fragment>
         );
     };

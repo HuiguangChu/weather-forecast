@@ -6,7 +6,7 @@ import TemperatureSection from 'common/src/components/cityDetails/TemperatureSec
 import ExtraInfoSection from 'common/src/components/cityDetails/ExtraInfoSection';
 import { AppRootState, CityWeatherData, RootState } from 'common/src/services/types';
 import GenericError from 'common/src/components/GenericError';
-import PageWithBackground from './PageWithBackground';
+import PageWithBackgroundImage from './PageWithBackgroundImage';
 import ErrorAlert from './ErrorAlert';
 
 interface ComponentProps {
@@ -24,7 +24,7 @@ const CityDetails: FC<ComponentProps> = memo(({ route }: ComponentProps) => {
     }
 
     return (
-        <PageWithBackground>
+        <PageWithBackgroundImage>
             <View style={styles.container}>
                 <View>
                     <View style={styles.temperatureInfo}>
@@ -33,7 +33,7 @@ const CityDetails: FC<ComponentProps> = memo(({ route }: ComponentProps) => {
                     <ExtraInfoSection cityDetails={cityDetails} />
                 </View>
             </View>
-        </PageWithBackground>
+        </PageWithBackgroundImage>
     );
 });
 

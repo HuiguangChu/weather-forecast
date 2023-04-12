@@ -6,16 +6,16 @@ import ExtraInfoSection from 'common/src/components/cityDetails/ExtraInfoSection
 import { CityWeatherData, RootState } from 'common/src/services/types';
 import Loading from 'common/src/components/Loading';
 import GenericError from 'common/src/components/GenericError';
-import styles from './Details.scss';
+import styles from './CityDetails.scss';
 
-const Details: FC = memo(() => {
+const CityDetails: FC = memo(() => {
     const { cityName } = useParams();
     const { appRoot: { citiesDataCollection } }: RootState = useSelector((state: RootState) => state);
     const cityDetails: CityWeatherData = citiesDataCollection?.find(
         (weatherData: CityWeatherData) => weatherData?.cityName === cityName,
     );
 
-    // for the case then use just refresh, may has error
+    // for the case when user just refresh, may has error
     if (!cityDetails) {
         return <GenericError />;
     }
@@ -32,4 +32,4 @@ const Details: FC = memo(() => {
     );
 });
 
-export default Details;
+export default CityDetails;

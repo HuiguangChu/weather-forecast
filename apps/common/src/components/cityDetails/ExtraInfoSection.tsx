@@ -1,7 +1,8 @@
 import React, { memo } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { CityWeatherData } from '../../services/types';
 import styleMixin from '../stylesMixin';
+import StyledText from '../StyledText';
 
 interface ExtraInfoSectionProps {
     cityDetails: CityWeatherData;
@@ -21,8 +22,8 @@ const ExtraInfoSection = memo(({ cityDetails }: ExtraInfoSectionProps) => {
     const renderInfoItem = (title: string, info: string | number) => {
         return (
             <View style={styles.infoItemCol} key={title}>
-                <Text>{captions[title]}</Text>
-                <Text style={styles.infoItemColBottom}>{info}</Text>
+                <StyledText content={captions[title]} />
+                <StyledText content={info} />
             </View>
         );
     };
@@ -51,8 +52,5 @@ const styles = StyleSheet.create({
     infoItemCol: {
         padding: 15,
         alignItems: 'center',
-    },
-    infoItemColBottom: {
-        marginTop: 5,
     },
 });

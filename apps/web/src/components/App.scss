@@ -35,8 +35,14 @@ ol {
   .pageHeader {
     @include flexBox($alignItems: $center, $justifyContent: $center);
 
+    h4 {
+      font-weight: 500;
+      padding: 0;
+      margin: 0;
+    }
+
     position: relative;
-    padding: 2rem;
+    padding: 2rem 1rem;
     font-weight: bold;
     font-size: 1.5rem;
     box-shadow: 0 2px 1px 0 rgb(204 226 248 / 50%);
@@ -47,5 +53,11 @@ ol {
       left: 2rem;
       color: black;
     }
+  }
+
+  .pageContent {
+    padding: 1rem;
+
+    @include flexBox($flex: 1, $alignItems: $flexStart);
   }
 }

@@ -8,12 +8,13 @@ $spaceAround: space-around;
 $flexStart: flex-start;
 $flexWrap: wrap;
 
-@mixin flexBox( $justifyContent: false,
-$flex: false,
-$direction: false,
-$alignItems: false,
-$basis: false,
-$wrap: false) {
+@mixin flexBox(
+  $justifyContent: false,
+  $flex: false,
+  $direction: false,
+  $alignItems: false,
+  $basis: false,
+  $wrap: false) {
   display: flex;
 
   @if $justifyContent != false {
@@ -41,10 +42,11 @@ $wrap: false) {
   }
 }
 
+/* stylelint-disable */
 @mixin breakpoint($point) {
   @if $point == 980 {
-    @media (width <= 980px) { @content; }
+    @media screen and (max-width: 980px) { @content; }
   } @else if $point == 600 {
-    @media (width <= 600px) { @content; }
+    @media screen and (max-width: 600px) { @content; }
   }
 }

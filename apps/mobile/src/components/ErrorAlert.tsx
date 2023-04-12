@@ -4,6 +4,7 @@ import React, {
 import { Alert } from 'react-native';
 import { NavigationContext, ParamListBase } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack/src/types';
+import { Routes } from 'common/src/services/constants';
 
 const ErrorAlert: FC = memo(() => {
     const navigation: NativeStackNavigationProp<ParamListBase> = useContext(NavigationContext);
@@ -12,7 +13,7 @@ const ErrorAlert: FC = memo(() => {
         <Fragment>
             {Alert.alert('OBS!Something went wrong', '', [{
                 text: 'Ok',
-                onPress: () => navigation.navigate('Dashboard'),
+                onPress: () => navigation.navigate(Routes.LOCATIONS),
                 style: 'cancel',
             }])}
         </Fragment>

@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
 import { createRoot, Root } from 'react-dom/client';
 import { createBrowserHistory, History } from 'history';
+import { Routes } from 'common/src/services/constants';
 import App from './components/App';
 import store from './redux/store';
 
@@ -16,7 +17,7 @@ root.render(
         <ConnectedRouter history={history}>
             <Switch>
                 <Route exact path="/" component={App} />
-                <Route path="/details/:cityName" component={App} />
+                <Route path={`/${Routes.CITY_DETAILS}/:cityName`} component={App} />
             </Switch>
         </ConnectedRouter>
     </Provider>,

@@ -1,12 +1,10 @@
 @import "../styleMinxin";
 
 .overviewContainer {
-  padding: 1rem 0;
-
-  @include flexBox($direction: $row, $justifyContent: $flexStart, $wrap: $flexWrap);
+  @include flexBox($direction: $row, $wrap: $flexWrap, $flex: 1);
 
   .overviewCard {
-    @include flexBox($basis: 33%);
+    @include flexBox($basis: calc(100% / 3));
 
     @include breakpoint(980) {
       @include flexBox($basis: 50%);

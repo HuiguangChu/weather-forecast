@@ -1,6 +1,8 @@
 @import "../styleMinxin";
 
 .detailsWrapper {
+  height: 100%;
+
   @include flexBox($flex: 1, $direction: $row, $alignItems: $center, $justifyContent: $spaceAround);
 
   @include breakpoint(600) {

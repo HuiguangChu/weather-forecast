@@ -8,7 +8,8 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'common/src/services/types';
 import Loading from 'common/src/components/Loading';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Details from './Details';
+import { Routes } from 'common/src/services/constants';
+import CityDetails from './CityDetails';
 import Dashboard from './Dashboard';
 import getLocation from '../services/locationService';
 
@@ -34,23 +35,22 @@ const RootNavigator: FC = memo(() => {
         <NavigationContainer>
             <Stack.Navigator screenOptions={{
                 headerLeft: ({ canGoBack }: HeaderBackButtonProps) => renderHeaderLeft(canGoBack),
-                headerStyle: {
-                    height: 60,
-                },
                 headerTitleStyle: {
-                    fontWeight: 'bold',
+                    fontWeight: '500',
                     fontSize: 18,
                 },
                 headerTitleAlign: 'center',
+                initialRouteName: Routes.LOCATIONS,
             }}
             >
                 <Stack.Screen
-                    name="Dashboard"
+                    name={Routes.LOCATIONS}
                     component={Dashboard}
+                    options={{ title: 'Locations' }}
                 />
                 <Stack.Screen
-                    name="Details"
-                    component={Details}
+                    name={Routes.CITY_DETAILS}
+                    component={CityDetails}
                     options={({ route }: NativeStackHeaderProps) => ({
                         title: route.params.cityName,
                         headerBackVisible: true,

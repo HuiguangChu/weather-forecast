@@ -1,9 +1,9 @@
 import React, { FC, memo } from 'react';
 import {
-    View, ActivityIndicator, Text,
+    View, ActivityIndicator,
 } from 'react-native';
-
 import styleMixin from './stylesMixin';
+import StyledText from './StyledText';
 
 interface LoadingProps {
     message?: string;
@@ -11,7 +11,9 @@ interface LoadingProps {
 const Loading: FC<LoadingProps> = memo(({ message }: LoadingProps) => (
     <View style={styleMixin.containerWithContentCenterFullHeight}>
         <ActivityIndicator />
-        <Text>{message || 'Loading...'}</Text>
+        <View style={{ marginTop: 5 }}>
+            <StyledText content={message || 'Loading...'} />
+        </View>
     </View>
 ));
 
