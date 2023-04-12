@@ -6,11 +6,11 @@
   ],
   "scripts": {
     "postinstall": "husky install",
-    "dev:mobile": "yarn workspace mobile start",
+    "dev:mobile": "yarn workspace mobile dev",
     "dev:web": "yarn workspace web dev",
-    "lint:all": "yarn workspace web lint --fix && yarn workspace mobile lint --fix && yarn workspace common lint --fix",
-    "lint:web": "yarn workspace web lint --fix && yarn workspace common lint --fix",
-    "lint:mobile": "yarn workspace mobile lint --fix && yarn workspace common lint --fix",
+    "lint:all": "yarn workspace web lint && yarn workspace mobile lint && yarn workspace common lint",
+    "lint:web": "yarn workspace web lint  && yarn workspace common lint",
+    "lint:mobile": "yarn workspace mobile lint  && yarn workspace common lint",
     "test:all": "yarn workspace common test",
     "test:web": "yarn workspace web test && yarn workspace common test",
     "test:mobile": "yarn workspace mobile test && yarn workspace common test"
