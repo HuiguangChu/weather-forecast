@@ -26,16 +26,16 @@ They can be imported, fox example:
 ```
 ### Key customized components in common:
 
-**StyleText:** simple HOC to wrap the Text component where we can define customized font size,
+* **StyleText:** simple HOC to wrap the Text component where we can define customized font size,
   weight, family and color, more props can be extended.
  
-**PageWithBackGroundImage:** simple HOC to with a background image, 
+* **PageWithBackGroundImage:** simple HOC to with a background image, 
   it has a default ones, but can set anyone as you want 
  
-**GenericError:** simple HOC to show error message, has default error message, 
+* **GenericError:** simple HOC to show error message, has default error message, 
  but can be a customized message/component
  
-**Loading**: simple component to show loading message, default message is "Loading", 
+* **Loading**: simple component to show loading message, default message is "Loading", 
  can define customized message, possible to extend it as a HOC as well
 
 ### Mixins for flexBox and breakpoint in web
@@ -63,6 +63,13 @@ They can be imported, fox example:
         }
     }
     ```
+    
+### Git hooks
+
+Made by [husky](https://typicode.github.io/husky/#/) 
+* `pre-push`: 
+    * `yarn lint:all`
+    * `yarn test:all`
 
 ## Main frameworks and libraries being used
 
@@ -74,7 +81,7 @@ They can be imported, fox example:
 * [nvm](https://github.com/nvm-sh/nvm): Node version manager
 * [axios](https://axios-http.com/): Make api call
 * [redux-saga](https://redux-saga.js.org/): Redux side effect management
-* [husky](https://typicode.github.io/husky/#/): modern native Git hooks made easy
+* [husky](https://typicode.github.io/husky/#/): Modern native Git hooks made easy
 * [yarn workspaces](https://yarnpkg.com/features/workspaces) -> Creating monorepo
 * [sass/scss](https://sass-lang.com/documentation/syntax) -> component styling for web
 
