@@ -8,7 +8,6 @@ const getLocation = () => {
          TODO: we should notify the user that the location service
             does not work on their context but they still can access by search manually
          */
-
         store.dispatch(loadWeatherDataForDefaultCities());
 
         return;

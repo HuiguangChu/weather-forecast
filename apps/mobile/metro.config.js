@@ -7,9 +7,6 @@ module.exports = (async () => {
 // This can be replaced with `find-yarn-workspace-root`
   const workspaceRoot = path.resolve(projectRoot, '../..');
 
-  const {
-    resolver: { sourceExts }
-  } = await getDefaultConfig(projectRoot);
   return {
     resolver: {
       disableHierarchicalLookup: true,

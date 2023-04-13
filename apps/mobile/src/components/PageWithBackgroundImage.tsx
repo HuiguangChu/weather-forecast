@@ -13,7 +13,7 @@ interface ComponentProps {
 }
 
 const PageWithBackgroundImage: FC<ComponentProps> = memo(({ children, backgroundImageUri }: ComponentProps) => {
-    const defaultImageUri = Image.resolveAssetSource(defaultImageSrc)?.uri;
+    const defaultImageUri: string = Image.resolveAssetSource(defaultImageSrc)?.uri;
 
     return (
         <View style={styles.container}>

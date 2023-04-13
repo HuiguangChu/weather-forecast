@@ -24,20 +24,22 @@ They can be imported, fox example:
    .tesoconfig.test.json -> Configuration for jest test with typescript
    .husky -> Git hooks
 ```
-### Key customized components in common:
+### Higher-Order Components in common
 
 * **StyleText:** simple HOC to wrap the Text component where we can define customized font size,
   weight, family and color, more props can be extended.
- 
-* **PageWithBackGroundImage:** simple HOC to with a background image, 
-  it has a default ones, but can set anyone as you want 
- 
+  
 * **GenericError:** simple HOC to show error message, has default error message, 
  but can be a customized message/component
  
 * **Loading**: simple component to show loading message, default message is "Loading", 
- can define customized message, possible to extend it as a HOC as well
+ can define customized message, possible to be extended as a HOC as well
 
+### Higher-Order Components in mobile
+
+* **PageWithBackGroundImage:** simple HOC to with a background image, 
+  it has a default value, but can set to any as you want 
+  
 ### Mixins for flexBox and breakpoint in web
 
 * **flexBox** mixin: \
@@ -82,9 +84,9 @@ Made by [husky](https://typicode.github.io/husky/#/)
 * [axios](https://axios-http.com/): Make api call
 * [redux-saga](https://redux-saga.js.org/): Redux side effect management
 * [husky](https://typicode.github.io/husky/#/): Modern native Git hooks made easy
-* [yarn workspaces](https://yarnpkg.com/features/workspaces) -> Creating monorepo
-* [sass/scss](https://sass-lang.com/documentation/syntax) -> component styling for web
-
+* [yarn workspaces](https://yarnpkg.com/features/workspaces):Creating monorepo
+* [sass/scss](https://sass-lang.com/documentation/syntax): Styling for web
+* [OpenWeatherMap API](https://openweathermap.org/current): Where is the weather data from 
 * Routing: 
    * react-native: [react-navigation]()
    * web: [react-router](https://reactrouter.com/en/main) + [connected-react-router](https://github.com/supasate/connected-react-router#readme) 

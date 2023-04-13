@@ -11,18 +11,20 @@ const Dashboard: FC = memo(() => {
     const appRootState: AppRootState = useSelector((state: RootState) => state.appRoot);
     const { citiesDataCollection } = appRootState;
     const history = useHistory();
-    const onNavigateToDetailPage = (cityName: string) => {
+    const onNavigateToDetailsPage = (cityName: string) => {
         history.push(`/${Routes.CITY_DETAILS}/${cityName}`);
     };
 
     const renderCitiesList = () => {
         return citiesDataCollection?.map((cityData: CityWeatherData) => {
+            const { cityName, temperature } = cityData;
+
             return (
-                <li className={styles.overviewCard} key={cityData?.cityName}>
+                <li className={styles.overviewCard} key={cityName}>
                     <OverviewCard
-                        cityName={cityData?.cityName}
-                        temperature={cityData?.temperature}
-                        onOpenCityDetails={onNavigateToDetailPage}
+                        cityName={cityName}
+                        temperature={temperature}
+                        onOpenCityDetails={onNavigateToDetailsPage}
                     />
                 </li>
             );

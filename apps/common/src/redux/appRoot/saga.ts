@@ -30,9 +30,6 @@ export function* callLoadDataFromOpenWeather() {
     const appRootState: AppRootState = yield select(getAppRootState);
     const allRequestUrls = [];
     const units = TemperatureUnits.METRIC; // this can be get from localStorage, here just use a default one
-    if (!appRootState) {
-        return;
-    }
 
     try {
         const { defaultCities, currentPosition } = appRootState;

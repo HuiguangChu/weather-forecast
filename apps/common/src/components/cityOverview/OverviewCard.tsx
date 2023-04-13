@@ -11,6 +11,7 @@ interface CityOverviewProps {
 
 const OverviewCard: FC<CityOverviewProps> = memo(({ cityName, temperature, onOpenCityDetails }: CityOverviewProps) => {
     const onCityCardClick = () => {
+        // We might need to set current active city name in reducer later on
         onOpenCityDetails(cityName);
     };
 
@@ -26,7 +27,7 @@ const OverviewCard: FC<CityOverviewProps> = memo(({ cityName, temperature, onOpe
             role="link"
         >
             <StyledText content={cityName} />
-            <StyledText size={15}>
+            <StyledText>
                 {temperature}
                 {' '}
                 &#8451;
