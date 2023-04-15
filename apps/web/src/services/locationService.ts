@@ -14,7 +14,7 @@ const getLocation = () => {
     }
 
     navigator.geolocation.getCurrentPosition(
-        (position: Position) => {
+        (position: GeolocationPosition) => {
             store.dispatch(setCurrentPosition({
                 longitude: position.coords.longitude,
                 latitude: position.coords.latitude,

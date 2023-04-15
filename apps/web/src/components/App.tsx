@@ -10,6 +10,7 @@ import Dashboard from './dashboard/Dashboard';
 import Header from './header/Header';
 import CityDetails from './cityDetails/CityDetails';
 import getLocation from '../services/locationService';
+import { RouteParams } from '../services/types';
 
 const App: FC = memo(() => {
     // ask for location permission if not have
@@ -18,7 +19,7 @@ const App: FC = memo(() => {
         [],
     );
 
-    const { cityName } = useParams();
+    const { cityName }: RouteParams = useParams();
     const { appRoot }: RootState = useSelector((state: RootState) => state);
 
     const renderPageBody = () => {

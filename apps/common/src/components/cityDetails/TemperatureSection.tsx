@@ -16,7 +16,7 @@ const TemperatureSection: FC<TemperatureSectionProps> = memo(({ cityDetails }: T
         <View style={styleMixin.alignContentAndItemCentered}>
             <StyledText content={weatherStatus} />
             <View style={styles.temperature}>
-                <StyledText size={22} weight={600}>
+                <StyledText size={22} weight="600">
                     {temperature}
                     {' '}
                     &#8451;

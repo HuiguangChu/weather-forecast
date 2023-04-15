@@ -1,11 +1,11 @@
 import React, {
     memo, FC,
 } from 'react';
-import { NativeStackHeaderProps } from '@react-navigation/native-stack/src/types';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, NavigationProp } from '@react-navigation/native';
 import { HeaderBackButton, HeaderBackButtonProps } from '@react-navigation/elements';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Routes } from 'common/src/services/constants';
+import { RouteProp } from '@react-navigation/core';
 import CityDetails from './CityDetails';
 import Dashboard from './Dashboard';
 
@@ -21,15 +21,17 @@ const RootNavigator: FC = memo(() => {
 
     return (
         <NavigationContainer>
-            <Stack.Navigator screenOptions={{
-                headerLeft: ({ canGoBack }: HeaderBackButtonProps) => renderHeaderLeft(canGoBack),
-                headerTitleStyle: {
-                    fontWeight: '500',
-                    fontSize: 18,
-                },
-                headerTitleAlign: 'center',
-                initialRouteName: Routes.LOCATIONS,
-            }}
+            <Stack.Navigator
+                screenOptions={{
+                    headerLeft: ({ canGoBack }: HeaderBackButtonProps) => renderHeaderLeft(canGoBack),
+                    headerTitleStyle: {
+                        fontWeight: '500',
+                        fontSize: 18,
+                    },
+                    headerTitleAlign: 'center',
+
+                }}
+                initialRouteName={Routes.LOCATIONS}
             >
                 <Stack.Screen
                     name={Routes.LOCATIONS}
@@ -39,7 +41,10 @@ const RootNavigator: FC = memo(() => {
                 <Stack.Screen
                     name={Routes.CITY_DETAILS}
                     component={CityDetails}
-                    options={({ route }: NativeStackHeaderProps) => ({
+                    options={({ route }: {
+                        route: RouteProp<any>;
+                        navigation:NavigationProp<any>;
+                    }) => ({
                         title: route.params.cityName,
                         headerBackVisible: true,
                     })}

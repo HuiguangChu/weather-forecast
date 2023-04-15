@@ -1,5 +1,5 @@
 import React, { FC, memo } from 'react';
-import { StyleSheet, Pressable, PressableProps } from 'react-native';
+import { StyleSheet, Pressable, PressableStateCallbackType } from 'react-native';
 import styleMixin from '../stylesMixin';
 import StyledText from '../StyledText';
 
@@ -7,6 +7,10 @@ interface CityOverviewProps {
    cityName: string;
    temperature: number;
    onOpenCityDetails: (cityName: string) => void;
+}
+
+interface PressableCallbackType extends PressableStateCallbackType {
+    hovered: boolean;
 }
 
 const OverviewCard: FC<CityOverviewProps> = memo(({ cityName, temperature, onOpenCityDetails }: CityOverviewProps) => {
@@ -17,7 +21,7 @@ const OverviewCard: FC<CityOverviewProps> = memo(({ cityName, temperature, onOpe
 
     return (
         <Pressable
-            style={({ pressed, hovered }: PressableProps) => [
+            style={({ pressed, hovered }: PressableCallbackType) => [
                 { backgroundColor: pressed || hovered ? '#f9f9f9' : '#ffffff' },
                 styleMixin.flexRowWithSpaceBetween,
                 styles.cityCard]}

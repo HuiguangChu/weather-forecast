@@ -7,9 +7,10 @@ import { CityWeatherData, RootState } from 'common/src/services/types';
 import Loading from 'common/src/components/Loading';
 import GenericError from 'common/src/components/GenericError';
 import styles from './CityDetails.scss';
+import { RouteParams } from '../../services/types';
 
 const CityDetails: FC = memo(() => {
-    const { cityName } = useParams();
+    const { cityName }: RouteParams = useParams();
     const { appRoot: { citiesDataCollection } }: RootState = useSelector((state: RootState) => state);
     const cityDetails: CityWeatherData = citiesDataCollection?.find(
         (weatherData: CityWeatherData) => weatherData?.cityName === cityName,

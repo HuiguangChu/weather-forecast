@@ -1,11 +1,11 @@
 import React, { memo, FC } from 'react';
-import { Text } from 'react-native';
+import { Text, TextStyle } from 'react-native';
 
 interface ComponentProps {
-    content?: string;
-    size?: number;
-    color?: string;
-    weight?: number;
+    content?: string | number;
+    size?: TextStyle['fontSize'];
+    color?: TextStyle['color'];
+    weight?: TextStyle['fontWeight'],
     children?: React.ReactNode;
 }
 
@@ -16,7 +16,7 @@ const StyledText: FC<ComponentProps> = memo(({
         <Text style={[
             { fontSize: size || 15 },
             { color: color || '#000' },
-            { fontWeight: weight || 400 },
+            { fontWeight: weight || '400' },
         ]}
         >
             {children || content}

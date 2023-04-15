@@ -5,7 +5,6 @@ import {
     View,
     Image,
 } from 'react-native';
-import defaultImageSrc from '../../assets/background-cloud.png';
 
 interface ComponentProps {
     children: ReactNode;
@@ -13,7 +12,7 @@ interface ComponentProps {
 }
 
 const PageWithBackgroundImage: FC<ComponentProps> = memo(({ children, backgroundImageUri }: ComponentProps) => {
-    const defaultImageUri: string = Image.resolveAssetSource(defaultImageSrc)?.uri;
+    const defaultImageUri: string = Image.resolveAssetSource(require('../../assets/background-cloud.png'))?.uri;
 
     return (
         <View style={styles.container}>
